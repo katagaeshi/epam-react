@@ -1,2 +1,2 @@
-document.write('welcome to my app');
+document.write(`welcome to ${process.env.NODE_ENV} mode`);
 console.log('app loaded');
