@@ -15,7 +15,7 @@ module.exports = (env) => {
   console.log('NODE_ENV: ', processEnv);
 
   return {
-    entry: './public/app.js',
+    entry: './public/app.jsx',
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'bundle.js',
