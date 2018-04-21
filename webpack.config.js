@@ -1,32 +1,52 @@
-const path = require('path');
+/* eslint-disable no-console */
 
-module.exports = {
-    entry: "./public/app.js",
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: './public/template.html',
+  filename: 'index.html',
+  inject: 'body',
+});
+
+module.exports = (env) => {
+  const processEnv = (env && env.NODE_ENV) || 'production';
+  console.log('NODE_ENV: ', processEnv);
+
+  return {
+    entry: './public/app.jsx',
     output: {
-        path: path.resolve(__dirname, "dist"),
-        filename: "bundle.js"
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'bundle.js',
     },
-    mode: "development",
+    mode: 'development',
     devServer: {
-        proxy: {
-            '/api': 'http://localhost:3001'
-        },
-        compress: true, // enable gzip compression
-        historyApiFallback: true, // true for index.html upon 404, object for multiple paths
-        hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin
-        https: false, // true for self-signed, object for cert authority
-        noInfo: true, // only errors & warns on hot reload
+      contentBase: path.join(__dirname, 'public'),
+      port: 9000,
+      stats: 'errors-only',
+      watchContentBase: true,
     },
     module: {
-        rules: [{
-            test: /\.js$/,
-            exclude: /(node_modules)/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                   presets: ['@babel/preset-env']
-                }
-            }
-        }]
-    }
- };
+      rules: [{
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+        },
+      }, {
+        test: /\.jsx$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+        },
+      }],
+    },
+    plugins: [
+      new webpack.EnvironmentPlugin({
+        NODE_ENV: processEnv,
+      }),
+      HtmlWebpackPluginConfig,
+    ],
+  };
+};
