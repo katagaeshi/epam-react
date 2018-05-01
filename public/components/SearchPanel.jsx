@@ -12,7 +12,7 @@ const SearchPanel = () => (
     </span>
     <SearchField />
     <SearchFilter />
-    <Button text="SEARCH" />
+    <Button className="SearchButton" text="SEARCH" />
   </div>
 );
 
