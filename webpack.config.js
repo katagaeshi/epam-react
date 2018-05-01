@@ -17,7 +17,11 @@ module.exports = (env) => {
   return {
     entry: './public/app.jsx',
     resolve: {
-      extensions: ['.js', '.jsx']
+      extensions: ['.js', '.jsx', '.css'],
+      modules: [
+        path.resolve(__dirname, './'),
+        path.resolve(__dirname, './node_modules'),
+      ],
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -32,6 +36,9 @@ module.exports = (env) => {
     },
     module: {
       rules: [{
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      }, {
         test: /\.js$/,
         exclude: /(node_modules)/,
         use: {

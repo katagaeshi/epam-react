@@ -5,10 +5,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/RunningTitle.css';
 
 const defaultText = 'netflixroulette';
 
-const RunningTitle = props => <span>{props.text}</span>;
+const RunningTitle = props => <span className="RunningTitle">{props.text}</span>;
 
 RunningTitle.defaultProps = {
   text: defaultText,

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MovieTile from './MovieTile';
+import '../styles/EmptyResults.css';
 
 const extractMovies = movies => movies.map(movie => <MovieTile {...movie} />);
 
 const FoundMovies = (props) => {
   const { movies } = props;
-  const totalMessage = <span>{props.total}</span>;
+  const totalMessage = <span className={!movies ? 'EmptyResults' : null}>{props.total}</span>;
 
   return (
     <div>

@@ -2,16 +2,17 @@ import React from 'react';
 import SearchField from './SearchField';
 import SearchFilter from './SearchFilter';
 import Button from './Button';
+import '../styles/SearchPanel.css';
 
 const labelText = 'FIND YOUR MOVIE';
 const SearchPanel = () => (
-  <div>
-    <label htmlFor="searchMovie">
+  <div className="SearchPanel">
+    <span className="Header">
       {labelText}
-      <SearchField id="searchMovie" />
-      <SearchFilter />
-      <Button text="SEARCH" />
-    </label>
+    </span>
+    <SearchField />
+    <SearchFilter />
+    <Button text="SEARCH" />
   </div>
 );
 

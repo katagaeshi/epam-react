@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/RadioButtonGroup.css';
 
 const getCheckedProperty = (checked, option) => (checked && option === checked);
 
@@ -19,16 +20,16 @@ class RadioButtonGroup extends React.Component {
   }
 
   render() {
-    const options = this.props.options.map(option => (
-      <div>
-        <label htmlFor={option}>{option}
-          <input
-            type="radio"
-            value={option}
-            checked={getCheckedProperty(this.state.selectedOption, option)}
-            onChange={this.handleOptionChange}
-          />
-        </label>
+    const options = this.props.options.map((option, idx) => (
+      <div className="RadioButton">
+        <input
+          type="radio"
+          value={option}
+          id={this.props.idPrefix + idx}
+          checked={getCheckedProperty(this.state.selectedOption, option)}
+          onChange={this.handleOptionChange}
+        />
+        <label htmlFor={this.props.idPrefix + idx}>{option}</label>
       </div>
     ));
 
@@ -38,6 +39,7 @@ class RadioButtonGroup extends React.Component {
 
 RadioButtonGroup.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  idPrefix: PropTypes.string.isRequired,
   checked: PropTypes.string,
 };
 

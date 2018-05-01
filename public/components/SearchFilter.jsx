@@ -15,11 +15,13 @@ const SearchFilter = props => (
 SearchFilter.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string),
   checked: PropTypes.string,
+  idPrefix: PropTypes.string,
 };
 
 SearchFilter.defaultProps = {
-  options: ['Title', 'Director'],
-  checked: 'Title',
+  options: ['TITLE', 'GENRE'],
+  checked: 'TITLE',
+  idPrefix: 'SearchFilter-',
 };
 
 export default SearchFilter;

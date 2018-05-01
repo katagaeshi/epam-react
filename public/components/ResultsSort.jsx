@@ -15,11 +15,13 @@ const ResultsSort = props => (
 ResultsSort.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string),
   checked: PropTypes.string,
+  idPrefix: PropTypes.string,
 };
 
 ResultsSort.defaultProps = {
   options: ['release date', 'rating'],
   checked: 'release date',
+  idPrefix: 'ResultsSort-',
 };
 
 export default ResultsSort;
