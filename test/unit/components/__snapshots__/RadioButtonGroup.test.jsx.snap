@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButtonGroup Snapshot 1`] = `
+Array [
+  <div
+    className="RadioButton"
+    key="radioButtonTest0"
+  />,
+  <div
+    className="RadioButton"
+    key="radioButtonTest1"
+  />,
+]
+`;

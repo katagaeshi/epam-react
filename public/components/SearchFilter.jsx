@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import RadioButtonGroup from './RadioButtonGroup';
 import '../styles/SearchFilter.css';
 
-const labelText = 'SEARCH BY';
+const filterText = 'SEARCH BY';
 
 const SearchFilter = props => (
   <div className="SearchFilter">
-    <label htmlFor="SearchFilter">{labelText}
-      <RadioButtonGroup idPrefix="SearchFilter" {...props} />
-    </label>
+    <span>{filterText}</span>
+    <RadioButtonGroup idPrefix="SearchFilter" {...props} />
   </div>
 );
 

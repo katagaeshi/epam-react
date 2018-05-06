@@ -8,15 +8,18 @@ class RadioButtonGroup extends React.Component {
   constructor(props) {
     super(props);
     this.handleOptionChange = this.handleOptionChange.bind(this);
+    this.onUpdate = this.props.onUpdate;
     this.state = {
       selectedOption: this.props.checked,
     };
   }
 
   handleOptionChange(changeEvent) {
+    const selectedOption = changeEvent.target.value;
     this.setState({
-      selectedOption: changeEvent.target.value,
+      selectedOption,
     });
+    this.onUpdate(selectedOption);
   }
 
   render() {
@@ -45,10 +48,12 @@ RadioButtonGroup.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   idPrefix: PropTypes.string.isRequired,
   checked: PropTypes.string,
+  onUpdate: PropTypes.func,
 };
 
 RadioButtonGroup.defaultProps = {
   checked: null,
+  onUpdate: () => {},
 };
 
 export default RadioButtonGroup;

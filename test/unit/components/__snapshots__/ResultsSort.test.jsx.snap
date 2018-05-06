@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResultsSort Snapshot 1`] = `
+<div>
+  <label
+    htmlFor="ResultsSort"
+  >
+    Sort by
+    <RadioButtonGroup
+      checked="release date"
+      idPrefix="ResultsSort-"
+      onUpdate={[Function]}
+      options={
+        Array [
+          "release date",
+          "rating",
+        ]
+      }
+    />
+  </label>
+</div>
+`;

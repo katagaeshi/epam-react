@@ -3,6 +3,7 @@
 exports[`SearchField Snapshot 1`] = `
 <input
   className="SearchField"
+  onChange={[Function]}
   placeholder="Enter movie info here"
 />
 `;

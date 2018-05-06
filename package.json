@@ -9,7 +9,11 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:update": "jest --updateSnapshot",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "start": "node ./src/app.js",
+    "cypress:open": "cypress open",
     "webpack:bundle:dev": "node_modules/.bin/webpack --env.NODE_ENV=development",
     "webpack:bundle:prod": "node_modules/.bin/webpack --env.NODE_ENV=production",
     "webpack:server:dev": "node_modules/.bin/webpack-dev-server --env.NODE_ENV=development",
@@ -33,6 +37,9 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",
@@ -42,6 +49,7 @@
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.3",
+    "nightwatch": "^0.9.21",
     "react-test-renderer": "^16.3.2",
     "redux": "^4.0.0",
     "style-loader": "^0.21.0",
@@ -51,11 +59,20 @@
   },
   "jest": {
     "verbose": true,
-    "collectCoverage": true,
+    "collectCoverage": false,
     "coverageDirectory": "./coverage",
-    "rootDir": "./test",
+    "rootDir": "./test/unit",
+    "modulePaths": [
+      "<rootDir>/../../"
+    ],
     "moduleNameMapper": {
       "\\.(css)$": "identity-obj-proxy"
-    }
+    },
+    "setupFiles": [
+      "./jestsetup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }

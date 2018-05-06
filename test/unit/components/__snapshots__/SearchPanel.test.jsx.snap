@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchPanel Snapshot 1`] = `
+<div
+  className="SearchPanel"
+>
+  <span
+    className="Header"
+  >
+    FIND YOUR MOVIE
+  </span>
+  <SearchField
+    handleChange={[Function]}
+  />
+  <SearchFilter
+    checked="TITLE"
+    idPrefix="SearchFilter-"
+    onUpdate={[Function]}
+    options={
+      Array [
+        "TITLE",
+        "GENRE",
+      ]
+    }
+  />
+  <button
+    className="SearchButton"
+    onClick={[Function]}
+  >
+    SEARCH
+  </button>
+</div>
+`;

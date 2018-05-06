@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainPage Snapshot 1`] = `
+<div>
+  <ErrorBoundary>
+    <RunningTitle
+      text="netflixroulette"
+    />
+    <SearchPanel />
+    <FoundMovies
+      movies={null}
+      total="No films found"
+    />
+    <RunningTitle
+      text="netflixroulette"
+    />
+  </ErrorBoundary>
+</div>
+`;
