@@ -20,18 +20,22 @@ class RadioButtonGroup extends React.Component {
   }
 
   render() {
-    const options = this.props.options.map((option, idx) => (
-      <div className="RadioButton">
-        <input
-          type="radio"
-          value={option}
-          id={this.props.idPrefix + idx}
-          checked={getCheckedProperty(this.state.selectedOption, option)}
-          onChange={this.handleOptionChange}
-        />
-        <label htmlFor={this.props.idPrefix + idx}>{option}</label>
-      </div>
-    ));
+    const options = this.props.options.map((option, idx) => {
+      const id = this.props.idPrefix + idx;
+      const key = id;
+      return (
+        <div key={key} className="RadioButton">
+          <input
+            type="radio"
+            value={option}
+            id={id}
+            checked={getCheckedProperty(this.state.selectedOption, option)}
+            onChange={this.handleOptionChange}
+          />
+          <label htmlFor={id}>{option}</label>
+        </div>
+      );
+    });
 
     return options;
   }

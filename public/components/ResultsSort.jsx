@@ -7,7 +7,7 @@ const labelText = 'Sort by';
 const ResultsSort = props => (
   <div>
     <label htmlFor="ResultsSort">{labelText}
-      <RadioButtonGroup id="ResultsSort" {...props} />
+      <RadioButtonGroup idPrefix="ResultsSort" {...props} />
     </label>
   </div>
 );

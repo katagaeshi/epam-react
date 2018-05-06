@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieTile Snapshot 1`] = `
+<div>
+  <img
+    alt="movie"
+    src="www.example.com"
+  />
+  <span>
+    Pokemon
+  </span>
+  <span>
+    2001
+  </span>
+  <span>
+    Anime
+  </span>
+</div>
+`;

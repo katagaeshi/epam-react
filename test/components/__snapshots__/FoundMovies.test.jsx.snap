@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FoundMovies Snapshot 1`] = `
+<div>
+  <span
+    className="EmptyResults"
+  >
+    No films found
+  </span>
+</div>
+`;

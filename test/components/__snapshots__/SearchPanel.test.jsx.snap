@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchPanel Snapshot 1`] = `
+<div
+  className="SearchPanel"
+>
+  <span
+    className="Header"
+  >
+    FIND YOUR MOVIE
+  </span>
+  <input
+    className="SearchField"
+    placeholder="Enter movie info here"
+  />
+  <div
+    className="SearchFilter"
+  >
+    <label
+      htmlFor="SearchFilter"
+    >
+      SEARCH BY
+      <div
+        className="RadioButton"
+      >
+        <input
+          checked={true}
+          id="SearchFilter-0"
+          onChange={[Function]}
+          type="radio"
+          value="TITLE"
+        />
+        <label
+          htmlFor="SearchFilter-0"
+        >
+          TITLE
+        </label>
+      </div>
+      <div
+        className="RadioButton"
+      >
+        <input
+          checked={false}
+          id="SearchFilter-1"
+          onChange={[Function]}
+          type="radio"
+          value="GENRE"
+        />
+        <label
+          htmlFor="SearchFilter-1"
+        >
+          GENRE
+        </label>
+      </div>
+    </label>
+  </div>
+  <button
+    className="SearchButton"
+  >
+    SEARCH
+  </button>
+</div>
+`;

@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from './Button';
 
 const MovieDetails = props => (
   <div>
-    <Button text="SEARCH" />
+    <button>SEARCH</button>
     <img src={props.src} alt="poster" />
     <span>{props.title}</span>
     <span>{props.rating}</span>

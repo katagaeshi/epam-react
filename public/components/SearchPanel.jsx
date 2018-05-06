@@ -1,7 +1,6 @@
 import React from 'react';
 import SearchField from './SearchField';
 import SearchFilter from './SearchFilter';
-import Button from './Button';
 import '../styles/SearchPanel.css';
 
 const labelText = 'FIND YOUR MOVIE';
@@ -12,7 +11,7 @@ const SearchPanel = () => (
     </span>
     <SearchField />
     <SearchFilter />
-    <Button className="SearchButton" text="SEARCH" />
+    <button className="SearchButton">SEARCH</button>
   </div>
 );
 

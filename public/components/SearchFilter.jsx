@@ -8,7 +8,7 @@ const labelText = 'SEARCH BY';
 const SearchFilter = props => (
   <div className="SearchFilter">
     <label htmlFor="SearchFilter">{labelText}
-      <RadioButtonGroup id="SearchFilter" {...props} />
+      <RadioButtonGroup idPrefix="SearchFilter" {...props} />
     </label>
   </div>
 );

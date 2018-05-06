@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchField Snapshot 1`] = `
+<input
+  className="SearchField"
+  placeholder="Enter movie info here"
+/>
+`;
