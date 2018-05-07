@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="RunSearchRequest"
+    errors="0" failures="0" hostname="" id="" package="RunSearchRequest" skipped="0"
+    tests="1" time="5.244" timestamp="Mon, 07 May 2018 00:29:07 GMT">
+  
+    <testcase name="it_shows_the_login_page" classname="RunSearchRequest" time="5.244" assertions="1">
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>
