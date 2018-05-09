@@ -8,6 +8,13 @@ class SearchField extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = props.handleChange;
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+  handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      this.handleChange();
+    }
   }
 
   render() {
@@ -15,6 +22,7 @@ class SearchField extends React.Component {
       className="SearchField"
       placeholder={placeholder}
       onChange={this.handleChange}
+      onKeyPress={this.handleKeyPress}
     />);
   }
 }

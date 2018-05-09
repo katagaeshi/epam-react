@@ -5,6 +5,8 @@ import '../styles/SearchPanel.css';
 
 const labelText = 'FIND YOUR MOVIE';
 
+const endpoint = 'http://react-cdp-api.herokuapp.com';
+
 class SearchPanel extends React.Component {
   constructor(props) {
     super(props);
@@ -34,7 +36,18 @@ class SearchPanel extends React.Component {
       console.log('Search field is empty');
       return;
     }
-    console.log(`Making request for movies: '${this.state.value} with filter '${this.state.filter}'`);
+    fetch(`${endpoint}/movies?search=${this.state.value}&searchBy=${this.state.filter}`)
+      .then(results => results.json())
+      .then((results) => {
+        console.log(results);
+        this.setState({
+          found: results,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    console.log(`Making request for movies: '${this.state.value}' with filter '${this.state.filter}'`);
   }
 
   render() {
