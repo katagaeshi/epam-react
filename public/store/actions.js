@@ -1,9 +1,0 @@
-const constants = {
-  SET_SEARCH_TEXT: 'SET_SEARCH_TEXT',
-  SET_SEARCH_BY: 'SET_SEARCH_BY',
-  SET_SORT_BY: 'SET_SORT_BY',
-  SET_FOUND_MOVIES: 'SET_FOUND_MOVIES',
-  SET_ACTIVE_PANEL: 'SET_ACTIVE_PANEL',
-};
-
-export default constants;

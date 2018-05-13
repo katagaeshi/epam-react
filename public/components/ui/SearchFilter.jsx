@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import RadioButtonGroup from './RadioButtonGroup';
-import '../styles/SearchFilter.css';
+import '../../styles/SearchFilter.css';
 
 const filterText = 'SEARCH BY';
 
@@ -20,7 +20,6 @@ SearchFilter.propTypes = {
 
 SearchFilter.defaultProps = {
   options: ['TITLE', 'GENRE'],
-  checked: 'TITLE',
   idPrefix: 'SearchFilter-',
 };
 

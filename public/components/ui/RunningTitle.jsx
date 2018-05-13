@@ -5,7 +5,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/RunningTitle.css';
+import '../../styles/RunningTitle.css';
 
 const defaultText = 'netflixroulette';
 

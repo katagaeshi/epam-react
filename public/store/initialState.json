@@ -1,7 +1,19 @@
 {
-  "searchText": "",
-  "searchBy": "TITLE",
+  "searchPanel": {
+    "text": "",
+    "filter": "TITLE"
+  },
   "sortBy": "rating",
-  "foundMovies": [],
-  "activePanel": "Search"
+  "foundMovies": {
+    "fetching": false,
+    "value": {
+      "movies": "",
+      "total": 0
+    }
+  },
+  "movieDetails": {
+    "fetching": false,
+    "value": {}
+  },
+  "activePanel": "SearchPanel"
 }
