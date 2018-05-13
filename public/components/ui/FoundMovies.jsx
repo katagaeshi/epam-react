@@ -4,19 +4,23 @@ import MovieTile from './MovieTile';
 import ResultsSort from './ResultsSort';
 import '../../styles/EmptyResults.css';
 
-const COMPARATOR = {
-  rating: (a, b) => a.vote_average - b.vote_average,
-  'release date': (a, b) => a.release_date >= b.release_date,
-};
-const extractMovies = (movies, sortBy) => {
-  const compare = COMPARATOR[sortBy];
-  return movies.sort(compare).map((movie, idx) => {
+const extractMovies = (movies, onClick) => {
+  const tiles = movies.map((movie, idx) => {
     const key = idx;
     return (<MovieTile
+      idx={idx}
       key={key}
       {...movie}
     />);
   });
+  return (
+    <div
+      onClick={onClick}
+      role="presentation"
+    >
+      {tiles}
+    </div>
+  );
 };
 
 const FoundMovies = (props) => {
@@ -25,9 +29,12 @@ const FoundMovies = (props) => {
   let resultsSort = null;
   if (props.total) {
     moviesFoundMessage = `${props.total} movies found`;
+    const onUpdate = (event) => {
+      onSortUpdate(event, movies);
+    };
     resultsSort = (
       <ResultsSort
-        onUpdate={onSortUpdate}
+        onUpdate={onUpdate}
         checked={option}
       />
     );
@@ -48,7 +55,7 @@ const FoundMovies = (props) => {
       {resultsSort}
       {
         movies ?
-          extractMovies(movies, option) :
+          extractMovies(movies, props.onMovieClick) :
           null
       }
     </div>
@@ -65,6 +72,7 @@ FoundMovies.propTypes = {
   total: PropTypes.string,
   option: PropTypes.string.isRequired,
   onSortUpdate: PropTypes.func.isRequired,
+  onMovieClick: PropTypes.func.isRequired,
 };
 
 FoundMovies.defaultProps = {

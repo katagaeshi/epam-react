@@ -21,6 +21,7 @@ class SearchPanel extends React.Component {
     this.props.startSearch(
       this.props.text,
       FILTER[this.props.filter],
+      this.props.sortOption,
     );
   }
 
@@ -55,6 +56,7 @@ SearchPanel.propTypes = {
   onFilterUpdate: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
   filter: PropTypes.string.isRequired,
+  sortOption: PropTypes.string.isRequired,
 };
 
 export default SearchPanel;

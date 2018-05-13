@@ -6,15 +6,20 @@ import {
   setSearchBy,
 } from '../../actions';
 
-const mapStateToProps = state => state.searchPanel;
+const mapStateToProps = state => Object.assign(
+  {},
+  state.searchPanel, {
+    sortOption: state.sortBy,
+  },
+);
 
 const mapDispatchToProps = dispatch => ({
-  startSearch(text, filter) {
+  startSearch(text, filter, sortOption) {
     if (!text) {
       console.log('Search field is empty');
       return;
     }
-    dispatch(findMovies(text, filter));
+    dispatch(findMovies(text, filter, sortOption));
   },
   handleSearchChange(event) {
     dispatch(setSearchText(event.target.value));

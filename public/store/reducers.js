@@ -22,8 +22,8 @@ const foundMovies = (state = initialState.foundMovies.value, action) =>
     action.payload :
     state);
 
-const foundDetails = (state = initialState.movieDetails.value, action) =>
-  ((action.type === actions.OPEN_MOVIE_DETAILS) ?
+const foundDetails = (state = initialState.movieDetails, action) =>
+  ((action.type === actions.SET_MOVIE_DETAILS) ?
     action.payload :
     state);
 
@@ -57,8 +57,5 @@ export default combineReducers({
     fetching,
     value: foundMovies,
   }),
-  movieDetails: combineReducers({
-    fetching,
-    foundDetails,
-  }),
+  movieDetails: foundDetails,
 });

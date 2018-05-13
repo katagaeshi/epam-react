@@ -1,6 +1,11 @@
 import { connect } from 'react-redux';
 import FoundMovies from '../ui/FoundMovies';
-import { setSortBy } from '../../actions';
+import {
+  setSortBy,
+  sortMovies,
+  setMovieDetails,
+  setActivePanel
+} from '../../actions';
 
 const mapStateToProps = state => (
   Object.assign({}, state.foundMovies.value, {
@@ -9,8 +14,17 @@ const mapStateToProps = state => (
 );
 
 const mapDispatchToProps = dispatch => ({
-  onSortUpdate(changeEvent) {
-    dispatch(setSortBy(changeEvent.target.value));
+  onSortUpdate(changeEvent, movies) {
+    const sortOption = changeEvent.target.value;
+    dispatch(setSortBy(sortOption));
+    dispatch(sortMovies(sortOption, movies));
+  },
+  onMovieClick(event) {
+    if (event.target !== event.currentTarget) {
+      dispatch(setMovieDetails(event.target.dataset.idx));
+      dispatch(setActivePanel('MovieDetails'));
+    }
+    event.stopPropagation();
   },
 });
 

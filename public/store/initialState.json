@@ -11,9 +11,6 @@
       "total": 0
     }
   },
-  "movieDetails": {
-    "fetching": false,
-    "value": {}
-  },
+  "movieDetails": -1,
   "activePanel": "SearchPanel"
 }
