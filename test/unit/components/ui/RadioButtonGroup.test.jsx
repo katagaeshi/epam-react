@@ -1,4 +1,4 @@
-import RadioButtonGroup from 'public/components/RadioButtonGroup';
+import RadioButtonGroup from 'public/components/ui/RadioButtonGroup';
 
 describe('RadioButtonGroup', () => {
   it('Snapshot', () => {
@@ -6,6 +6,7 @@ describe('RadioButtonGroup', () => {
       options={['Pikachu', 'Charmander']}
       checked="Pikachu"
       idPrefix="radioButtonTest"
+      onUpdate={() => {}}
     />);
     expect(tree).toMatchSnapshot();
   });

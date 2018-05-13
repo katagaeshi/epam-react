@@ -25,7 +25,6 @@ export const setActivePanel = panel => ({
   payload: panel,
 });
 
-
 const COMPARATOR = {
   rating: (a, b) => a.vote_average - b.vote_average,
   'release date': (a, b) => a.release_date >= b.release_date,

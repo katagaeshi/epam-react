@@ -11,9 +11,10 @@ exports[`SearchPanel Snapshot 1`] = `
   </span>
   <SearchField
     handleChange={[Function]}
+    onEnter={[Function]}
   />
   <SearchFilter
-    checked="TITLE"
+    checked=""
     idPrefix="SearchFilter-"
     onUpdate={[Function]}
     options={

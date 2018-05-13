@@ -6,11 +6,8 @@ exports[`MainPage Snapshot 1`] = `
     <RunningTitle
       text="netflixroulette"
     />
-    <SearchPanel />
-    <FoundMovies
-      movies={null}
-      total="No films found"
-    />
+    <Connect(SearchPanel) />
+    <Connect(FoundMovies) />
     <RunningTitle
       text="netflixroulette"
     />

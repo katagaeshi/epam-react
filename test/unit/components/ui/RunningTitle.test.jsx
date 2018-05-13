@@ -1,4 +1,4 @@
-import RunningTitle from 'public/components/RunningTitle';
+import RunningTitle from 'public/components/ui/RunningTitle';
 
 describe('RunningTitle', () => {
   it('Snapshot', () => {

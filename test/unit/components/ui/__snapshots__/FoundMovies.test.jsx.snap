@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FoundMovies Snapshot (with movies) 1`] = `
+<div>
+  <span
+    className={null}
+  >
+    Let's see what we've found: movies found
+  </span>
+  <ResultsSort
+    checked="release_date"
+    idPrefix="ResultsSort-"
+    onUpdate={[Function]}
+    options={
+      Array [
+        "release date",
+        "rating",
+      ]
+    }
+  />
+  <div
+    onClick={[Function]}
+    role="presentation"
+  >
+    <MovieTile
+      genres={
+        Array [
+          "cyberpunk",
+        ]
+      }
+      idx={0}
+      key="0"
+      poster_path={null}
+      release_date={null}
+      title="Robocop: Winter Soldier"
+    />
+    <MovieTile
+      genres={
+        Array [
+          "dieselpunk",
+        ]
+      }
+      idx={1}
+      key="1"
+      poster_path={null}
+      release_date={null}
+      title="Lord of The Rings: Return of Joker"
+    />
+  </div>
+</div>
+`;
+
+exports[`FoundMovies Snapshot (without movies) 1`] = `
+<div>
+  <span
+    className="EmptyResults"
+  >
+    No films found movies found
+  </span>
+  <ResultsSort
+    checked="release_date"
+    idPrefix="ResultsSort-"
+    onUpdate={[Function]}
+    options={
+      Array [
+        "release date",
+        "rating",
+      ]
+    }
+  />
+</div>
+`;

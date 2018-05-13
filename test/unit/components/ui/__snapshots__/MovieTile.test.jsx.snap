@@ -4,16 +4,15 @@ exports[`MovieTile Snapshot 1`] = `
 <div>
   <img
     alt="movie"
-    src="www.example.com"
+    data-idx={1}
+    src={null}
   />
   <span>
     Pokemon
   </span>
+  <span />
   <span>
-    2001
-  </span>
-  <span>
-    Anime
+    headbanger movies,impossible brutality
   </span>
 </div>
 `;

@@ -8,7 +8,7 @@ exports[`SearchFilter Snapshot 1`] = `
     SEARCH BY
   </span>
   <RadioButtonGroup
-    checked="TITLE"
+    checked={null}
     idPrefix="SearchFilter-"
     onUpdate={[Function]}
     options={
