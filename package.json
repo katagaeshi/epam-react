@@ -23,6 +23,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
+    "localforage": "^1.7.1",
     "morgan": "^1.9.0",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
@@ -30,6 +31,7 @@
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "redux": "^4.0.0",
+    "redux-persist": "^5.9.1",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
