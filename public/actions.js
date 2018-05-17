@@ -67,6 +67,13 @@ export const findMovies = (value, filter, sortOption) => (dispatch) => {
     .catch((error) => {
       console.error(error);
       dispatch({
+        type: actions.SET_FOUND_MOVIES,
+        payload: {
+          total: 0,
+          movies: [],
+        },
+      });
+      dispatch({
         type: actions.CANCEL_FETCHING,
       });
     });
