@@ -4,22 +4,34 @@ import {
   findMovies,
   setSearchText,
   setSearchBy,
+  setRedirect,
+  setCameFromLink,
 } from '../../actions';
 
 const mapStateToProps = state => Object.assign(
   {},
   state.searchPanel, {
     sortOption: state.sortBy,
+    fetchFilmsOnLoad: state.foundMovies,
   },
 );
 
 const mapDispatchToProps = dispatch => ({
-  startSearch(text, filter, sortOption) {
-    if (!text) {
+  startSearch(value, filter, sortOption) {
+    if (!value) {
       console.log('Search field is empty');
       return;
     }
-    dispatch(findMovies(text, filter, sortOption));
+    dispatch(findMovies({
+      value,
+      filter,
+      sortOption,
+    }));
+    dispatch(setRedirect(true));
+    dispatch(setCameFromLink(false));
+  },
+  findMovies(query) {
+    dispatch(findMovies({ query }));
   },
   handleSearchChange(event) {
     dispatch(setSearchText(event.target.value));
@@ -27,6 +39,7 @@ const mapDispatchToProps = dispatch => ({
   onFilterUpdate(changeEvent) {
     dispatch(setSearchBy(changeEvent.target.value));
   },
+  setCameFromLink: value => dispatch(setCameFromLink(value)),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(SearchPanel);

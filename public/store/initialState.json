@@ -4,6 +4,7 @@
     "filter": "TITLE"
   },
   "sortBy": "rating",
+  "searchQuery": "",
   "foundMovies": {
     "fetching": false,
     "value": {
@@ -12,5 +13,6 @@
     }
   },
   "movieDetails": -1,
-  "activePanel": "SearchPanel"
+  "activePanel": "SearchPanel",
+  "redirect": false
 }

@@ -4,12 +4,15 @@ import {
   setSortBy,
   sortMovies,
   setMovieDetails,
-  setActivePanel
+  setActivePanel,
+  setRedirect,
 } from '../../actions';
 
 const mapStateToProps = state => (
   Object.assign({}, state.foundMovies.value, {
     option: state.sortBy,
+    selectedMovie: state.movieDetails,
+    activePanel: state.activePanel,
   })
 );
 
@@ -21,8 +24,9 @@ const mapDispatchToProps = dispatch => ({
   },
   onMovieClick(event) {
     if (event.target !== event.currentTarget) {
-      dispatch(setMovieDetails(event.target.dataset.idx));
+      dispatch(setMovieDetails(event.target.dataset.id));
       dispatch(setActivePanel('MovieDetails'));
+      dispatch(setRedirect(true));
     }
     event.stopPropagation();
   },

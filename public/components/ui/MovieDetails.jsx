@@ -22,6 +22,7 @@ MovieDetails.propTypes = {
   tagline: PropTypes.string,
   runtime: PropTypes.string,
   overview: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
 };
 
 MovieDetails.defaultProps = {

@@ -24,7 +24,12 @@ const extractMovies = (movies, onClick) => {
 };
 
 const FoundMovies = (props) => {
-  const { movies, option, onSortUpdate } = props;
+  const {
+    movies,
+    option,
+    onSortUpdate,
+  } = props;
+
   let moviesFoundMessage = '';
   let resultsSort = null;
   if (props.total) {

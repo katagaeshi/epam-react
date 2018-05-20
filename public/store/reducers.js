@@ -32,6 +32,15 @@ export const activePanel = (state = initialState.activePanel, action) =>
     action.payload :
     state);
 
+export const redirect = (state = initialState.redirect, action) =>
+  ((action.type === actions.SET_REDIRECT) ?
+    action.payload :
+    state);
+
+export const searchQuery = (state = initialState.searchQuery, action) =>
+  ((action.type === actions.SET_SEARCH_QUERY) ?
+    action.payload :
+    state);
 
 export const fetching = (state = false, action) => {
   switch (action.type) {
@@ -50,10 +59,12 @@ export default combineReducers({
     filter: searchBy,
   }),
   sortBy,
+  searchQuery,
   activePanel,
   foundMovies: combineReducers({
     fetching,
     value: foundMovies,
   }),
   movieDetails: foundDetails,
+  redirect,
 });

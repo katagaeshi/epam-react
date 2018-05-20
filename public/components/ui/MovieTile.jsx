@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const MovieTile = props => (
   <div>
-    <img data-idx={props.idx} src={props.poster_path} alt="movie" />
+    <img data-id={props.id} src={props.poster_path} alt="movie" />
     <span>{props.title}</span>
     <span>{props.release_date}</span>
     <span>{props.genres.toString()}</span>
@@ -11,7 +11,7 @@ const MovieTile = props => (
 );
 
 MovieTile.propTypes = {
-  idx: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   poster_path: PropTypes.string,
   title: PropTypes.string.isRequired,
   release_date: PropTypes.string,

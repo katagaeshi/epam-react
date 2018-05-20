@@ -26,6 +26,9 @@ class SearchPanel extends React.Component {
   }
 
   render() {
+    if (this.props.query) {
+      this.props.findMovies(this.props.query);
+    }
     return (
       <div className="SearchPanel">
         <span className="Header">
@@ -57,6 +60,13 @@ SearchPanel.propTypes = {
   text: PropTypes.string.isRequired,
   filter: PropTypes.string.isRequired,
   sortOption: PropTypes.string.isRequired,
+  query: PropTypes.string,
+  findMovies: PropTypes.func.isRequired,
+  setCameFromLink: PropTypes.func.isRequired,
+};
+
+SearchPanel.defaultProps = {
+  query: null,
 };
 
 export default SearchPanel;

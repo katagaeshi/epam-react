@@ -25,6 +25,21 @@ export const setActivePanel = panel => ({
   payload: panel,
 });
 
+export const setRedirect = value => ({
+  type: actions.SET_REDIRECT,
+  payload: value,
+});
+
+export const setSearchQuery = query => ({
+  type: actions.SET_SEARCH_QUERY,
+  payload: query,
+});
+
+export const setCameFromLink = value => ({
+  type: actions.SET_CAME_FROM_LINK,
+  payload: value,
+});
+
 const COMPARATOR = {
   rating: (a, b) => a.vote_average - b.vote_average,
   'release date': (a, b) => a.release_date >= b.release_date,
@@ -45,12 +60,24 @@ const SORT_OPTIONS = {
   rating: 'vote_average',
 };
 
-export const findMovies = (value, filter, sortOption) => (dispatch) => {
+export const findMovies = ({
+  value,
+  filter,
+  sortOption,
+  query = null,
+}) => (dispatch) => {
   dispatch({
     type: actions.FETCH_MOVIES,
   });
 
-  fetch(`${endpoint}/movies?search=${encodeURIComponent(value)}&searchBy=${filter}&sortBy=${SORT_OPTIONS[sortOption]}`)
+  const searchQuery = query || `${encodeURIComponent(value)}&searchBy=${filter}&sortBy=${SORT_OPTIONS[sortOption]}`;
+
+  dispatch({
+    type: actions.SET_SEARCH_QUERY,
+    payload: searchQuery,
+  });
+
+  fetch(`${endpoint}/movies?search=${searchQuery}`)
     .then(results => results.json())
     .then((results) => {
       dispatch({
