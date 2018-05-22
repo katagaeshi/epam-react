@@ -1,20 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MovieDetails = props => (
-  <div>
-    <button onClick={props.onClick}>SEARCH</button>
-    <img src={props.poster_path} alt="poster" />
-    <span>{props.title}</span>
-    <span>{props.vote_average}</span>
-    <span>{props.tagline}</span>
-    <span>{props.release_date}</span>
-    <span>{props.runtime}</span>
-    <span>{props.overview}</span>
-  </div>
-);
+class MovieDetails extends React.Component {
+  componentDidMount() {
+    if (this.props.notFound) {
+      return this
+        .props
+        .fetchMovieDetails(this.props.location.pathname.replace(this.props.match.path, ''));
+    }
+    return Promise.resolve();
+  }
+
+  render() {
+    if (this.props.location.pathname.replace(this.props.match.path, '') !== this.props.id.toString()) {
+      this
+        .props
+        .fetchMovieDetails(this.props.location.pathname.replace(this.props.match.path, ''));
+    }
+    return (
+      <div>
+        <button onClick={this.props.onClick}>SEARCH</button>
+        <img src={this.props.poster_path} alt="poster" />
+        <span>{this.props.title}</span>
+        <span>{this.props.vote_average}</span>
+        <span>{this.props.tagline}</span>
+        <span>{this.props.release_date}</span>
+        <span>{this.props.runtime}</span>
+        <span>{this.props.overview}</span>
+      </div>
+    );
+  }
+}
 
 MovieDetails.propTypes = {
+  id: PropTypes.string.isRequired,
   poster_path: PropTypes.string,
   title: PropTypes.string.isRequired,
   vote_average: PropTypes.string,
@@ -23,6 +42,16 @@ MovieDetails.propTypes = {
   runtime: PropTypes.string,
   overview: PropTypes.string,
   onClick: PropTypes.func.isRequired,
+  notFound: PropTypes.bool,
+  fetchMovieDetails: PropTypes.func.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
+  match: PropTypes.shape({
+    path: PropTypes.string,
+  }).isRequired,
+  setActivePanel: PropTypes.func.isRequired,
+  redirectOnRenderFail: PropTypes.func.isRequired,
 };
 
 MovieDetails.defaultProps = {
@@ -32,6 +61,7 @@ MovieDetails.defaultProps = {
   runtime: null,
   overview: null,
   vote_average: null,
+  notFound: false,
 };
 
 export default MovieDetails;

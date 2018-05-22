@@ -35,11 +35,6 @@ export const setSearchQuery = query => ({
   payload: query,
 });
 
-export const setCameFromLink = value => ({
-  type: actions.SET_CAME_FROM_LINK,
-  payload: value,
-});
-
 const COMPARATOR = {
   rating: (a, b) => a.vote_average - b.vote_average,
   'release date': (a, b) => a.release_date >= b.release_date,
@@ -102,6 +97,39 @@ export const findMovies = ({
       });
       dispatch({
         type: actions.CANCEL_FETCHING,
+      });
+    });
+};
+
+export const fetchMovieDetails = id => (dispatch) => {
+  dispatch({
+    type: actions.FETCH_MOVIE_DETAILS,
+  });
+
+  return fetch(`${endpoint}/movies/${id}`)
+    .then(results => results.json())
+    .then((results) => {
+      dispatch({
+        type: actions.SET_MOVIE_DETAILS,
+        payload: results.id,
+      });
+      dispatch({
+        type: actions.SET_FOUND_MOVIES,
+        payload: {
+          total: 1,
+          movies: [results],
+        },
+      });
+      dispatch({
+        type: actions.CANCEL_FETCH_MOVIE_DETAILS,
+      });
+    })
+    .catch((error) => {
+      console.error(error);
+      dispatch(setActivePanel('404'));
+      dispatch(setRedirect(true));
+      dispatch({
+        type: actions.CANCEL_FETCH_MOVIE_DETAILS,
       });
     });
 };

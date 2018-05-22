@@ -20,8 +20,10 @@ const MainPage = (props) => {
     props.setRedirect(false);
     if (props.activePanel === 'MovieDetails') {
       return <Redirect to={`/film/${props.movieDetailsId}`} />;
+    } else if (props.activePanel === 'SearchPanel') {
+      return <Redirect to={`/search/${props.searchQuery}`} />;
     }
-    return <Redirect to={`/search/${props.searchQuery}`} />;
+    return <Redirect to="/404" />;
   } else if (props.location.pathname !== '/' &&
       `/search/${props.searchQuery}` !== props.location.pathname) {
     cameFromLink = true;
@@ -35,14 +37,22 @@ const MainPage = (props) => {
           <Route
             exact
             path="/"
-            component={SearchPanel}
+            render={() => (
+              <div>
+                <SearchPanel />
+                <FoundMovies />
+              </div>
+            )}
           />
           <Route
             path="/search"
             render={() => (
-              <SearchPanel
-                query={cameFromLink ? props.location.pathname.replace('/search/', '') : null}
-              />
+              <div>
+                <SearchPanel
+                  query={cameFromLink ? props.location.pathname.replace('/search/', '') : null}
+                />
+                <FoundMovies />
+              </div>
             )}
           />
           <Route
@@ -50,10 +60,14 @@ const MainPage = (props) => {
             component={MovieDetails}
           />
           <Route
+            exact
+            path="/404"
+            component={component404}
+          />
+          <Route
             component={component404}
           />
         </Switch>
-        <FoundMovies />
         <RunningTitle />
       </ErrorBoundary>
     </div>
