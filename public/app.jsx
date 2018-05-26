@@ -12,6 +12,8 @@ import {
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './store';
 
+import './styles/reset.css';
+
 
 import MainPage from './components/containers/MainPage';
 

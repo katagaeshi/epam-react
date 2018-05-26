@@ -42,12 +42,14 @@ class SearchPanel extends React.Component {
           onUpdate={this.props.onFilterUpdate}
           checked={this.props.filter}
         />
-        <button
-          className="SearchButton"
-          onClick={this.onClick}
-        >
-        SEARCH
-        </button>
+        <div className="SearchButtonContainer">
+          <button
+            className="SearchButton"
+            onClick={this.onClick}
+          >
+          SEARCH
+          </button>
+        </div>
       </div>
     );
   }
@@ -62,7 +64,6 @@ SearchPanel.propTypes = {
   sortOption: PropTypes.string.isRequired,
   query: PropTypes.string,
   findMovies: PropTypes.func.isRequired,
-  setCameFromLink: PropTypes.func.isRequired,
 };
 
 SearchPanel.defaultProps = {

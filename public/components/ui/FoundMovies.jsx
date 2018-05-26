@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import MovieTile from './MovieTile';
 import ResultsSort from './ResultsSort';
 import '../../styles/EmptyResults.css';
+import '../../styles/FoundMovies.css';
 
 const extractMovies = (movies, onClick) => {
   const tiles = movies.map((movie, idx) => {
@@ -17,6 +18,7 @@ const extractMovies = (movies, onClick) => {
     <div
       onClick={onClick}
       role="presentation"
+      className="FoundMovies"
     >
       {tiles}
     </div>

@@ -28,7 +28,6 @@ const mapDispatchToProps = dispatch => ({
       sortOption,
     }));
     dispatch(setRedirect(true));
-    dispatch(setCameFromLink(false));
   },
   findMovies(query) {
     dispatch(findMovies({ query }));

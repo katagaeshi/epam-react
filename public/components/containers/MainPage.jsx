@@ -11,7 +11,6 @@ const mapStateToProps = state => ({
   movieDetailsId: state.movieDetails,
   redirect: state.redirect,
   searchQuery: state.searchQuery,
-  cameFromLink: state.cameFromLink,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,0 +1,6 @@
+.FoundMovies {
+  display: grid;
+  grid-gap: 15px;
+  grid-row-gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}

@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../styles/MovieTile.css';
 
 const MovieTile = props => (
-  <div>
+  <div className="MovieTile">
     <img data-id={props.id} src={props.poster_path} alt="movie" />
-    <span>{props.title}</span>
-    <span>{props.release_date}</span>
-    <span>{props.genres.toString()}</span>
+    <span className="Title">{props.title}</span>
+    <div className="ReleaseDate">
+      <span>{props.release_date}</span>
+    </div>
+    <span className="Genre">{props.genres.toString()}</span>
   </div>
 );
 

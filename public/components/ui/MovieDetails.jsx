@@ -12,11 +12,6 @@ class MovieDetails extends React.Component {
   }
 
   render() {
-    if (this.props.location.pathname.replace(this.props.match.path, '') !== this.props.id.toString()) {
-      this
-        .props
-        .fetchMovieDetails(this.props.location.pathname.replace(this.props.match.path, ''));
-    }
     return (
       <div>
         <button onClick={this.props.onClick}>SEARCH</button>
