@@ -10,7 +10,6 @@ import RunningTitle from './RunningTitle';
 import SearchPanel from './../containers/SearchPanel';
 import FoundMovies from './../containers/FoundMovies';
 import MovieDetails from './../containers/MovieDetails';
-import ErrorBoundary from './ErrorBoundary';
 
 const component404 = () => (<h1>404</h1>);
 
@@ -31,45 +30,43 @@ const MainPage = (props) => {
 
   return (
     <div>
-      <ErrorBoundary>
-        <RunningTitle />
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <div>
-                <SearchPanel />
-                <FoundMovies />
-              </div>
-            )}
-          />
-          <Route
-            path="/search"
-            render={() => (
-              <div>
-                <SearchPanel
-                  query={cameFromLink ? props.location.pathname.replace('/search/', '') : null}
-                />
-                <FoundMovies />
-              </div>
-            )}
-          />
-          <Route
-            path="/film/"
-            component={MovieDetails}
-          />
-          <Route
-            exact
-            path="/404"
-            component={component404}
-          />
-          <Route
-            component={component404}
-          />
-        </Switch>
-        <RunningTitle />
-      </ErrorBoundary>
+      <RunningTitle />
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <div>
+              <SearchPanel />
+              <FoundMovies />
+            </div>
+          )}
+        />
+        <Route
+          path="/search"
+          render={() => (
+            <div>
+              <SearchPanel
+                query={cameFromLink ? props.location.pathname.replace('/search/', '') : null}
+              />
+              <FoundMovies />
+            </div>
+          )}
+        />
+        <Route
+          path="/film/"
+          component={MovieDetails}
+        />
+        <Route
+          exact
+          path="/404"
+          component={component404}
+        />
+        <Route
+          component={component404}
+        />
+      </Switch>
+      <RunningTitle />
     </div>
   );
 };
@@ -83,8 +80,6 @@ MainPage.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }).isRequired,
-  setCameFromLink: PropTypes.func.isRequired,
-  cameFromLink: PropTypes.bool.isRequired,
 };
 
 export default MainPage;
