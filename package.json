@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/katagaeshi/epam-react.git"
   },
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
     "test": "jest",
     "test:update": "jest --updateSnapshot",
@@ -14,20 +14,23 @@
     "test:coverage": "jest --coverage",
     "test:e2e": "nightwatch --env default",
     "start": "node ./src/app.js",
-    "webpack:bundle:dev": "node_modules/.bin/webpack --env.NODE_ENV=development",
-    "webpack:bundle:prod": "node_modules/.bin/webpack --env.NODE_ENV=production",
-    "webpack:server:dev": "node_modules/.bin/webpack-dev-server --env.NODE_ENV=development",
-    "webpack:server:prod": "node_modules/.bin/webpack-dev-server --env.NODE_ENV=production"
+    "webpack:bundle:dev": "node_modules/.bin/webpack --env.NODE_ENV=development --config ./webpack.config.js",
+    "webpack:bundle:prod": "node_modules/.bin/webpack --env.NODE_ENV=production --config ./webpack.config.js",
+    "webpack:server:dev": "node_modules/.bin/webpack-dev-server --env.NODE_ENV=development --config ./webpack.config.js",
+    "webpack:server:prod": "node_modules/.bin/webpack-dev-server --env.NODE_ENV=production --config ./webpack.config.js"
   },
   "author": "Yauheni Kireyeu",
   "license": "ISC",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "express": "^4.16.3",
+    "isomorphic-fetch": "^2.2.1",
     "localforage": "^1.7.1",
     "morgan": "^1.9.0",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-hot-loader": "^4.2.0",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
@@ -41,6 +44,7 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "chromedriver": "^2.38.3",
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
@@ -60,7 +64,12 @@
     "style-loader": "^0.21.0",
     "webpack": "^4.6.0",
     "webpack-cli": "^2.0.15",
-    "webpack-dev-server": "^3.1.3"
+    "webpack-dev-middleware": "^3.1.3",
+    "webpack-dev-server": "^3.1.3",
+    "webpack-hot-middleware": "^2.22.2",
+    "webpack-hot-server-middleware": "^0.5.0",
+    "webpack-merge": "^4.1.2",
+    "webpack-node-externals": "^1.7.2"
   },
   "jest": {
     "verbose": true,

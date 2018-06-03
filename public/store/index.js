@@ -4,7 +4,6 @@ import storage from 'localforage';
 
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import { createStore, compose, applyMiddleware } from 'redux';
-import initialState from './initialState.json';
 import appReducer from './reducers';
 
 /**
@@ -27,9 +26,13 @@ const persistConfig = {
 
 const reducer = persistReducer(persistConfig, appReducer);
 
-export const store = compose(applyMiddleware(
-  thunk,
-  logger,
-))(createStore)(reducer, initialState);
-
-export const persistor = persistStore(store);
+export default (state) => {
+  const store = compose(applyMiddleware(
+    thunk,
+    logger,
+  ))(createStore)(reducer, state);
+  return {
+    store,
+    persistor: persistStore(store),
+  };
+};
