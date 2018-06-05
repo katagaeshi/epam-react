@@ -1,4 +1,4 @@
-.MainPage {
+/*.MainPage {
   display: flex;
   flex-flow: column;
 }
@@ -6,3 +6,4 @@
 .MainPage > * {
   flex: 1 100%;
 }
+*/

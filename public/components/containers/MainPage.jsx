@@ -8,7 +8,7 @@ import actions from './../../constants';
 
 const mapStateToProps = state => ({
   activePanel: state.activePanel,
-  movieDetailsId: state.movieDetails,
+  movieDetailsId: state.movieDetails.toString(),
   redirect: state.redirect,
   searchQuery: state.searchQuery,
 });

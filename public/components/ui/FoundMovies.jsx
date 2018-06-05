@@ -50,7 +50,7 @@ const FoundMovies = (props) => {
   }
   const totalMessage = (
     <span
-      className={!movies ? 'EmptyResults' : null}
+      className={!movies.length ? 'EmptyResults' : null}
     >
       {moviesFoundMessage}
     </span>
@@ -76,14 +76,14 @@ FoundMovies.propTypes = {
     year: PropTypes.number,
     genre: PropTypes.string,
   })),
-  total: PropTypes.string,
+  total: PropTypes.number,
   option: PropTypes.string.isRequired,
   onSortUpdate: PropTypes.func.isRequired,
   onMovieClick: PropTypes.func.isRequired,
 };
 
 FoundMovies.defaultProps = {
-  movies: null,
+  movies: [],
   total: 'No films found',
 };
 

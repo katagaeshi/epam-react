@@ -23,11 +23,12 @@ module.exports = (env) => {
     module: {
       rules: [{
         test: /\.css$/,
+        include: /styles/,
         use: [{
           loader: 'css-loader/locals',
           options: {
             modules: true,
-            localIdentName: '[name]-[hash:5]',
+            localIdentName: '[name]',
           },
         }],
       }, {
