@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../styles/MovieDetails.css';
 
 class MovieDetails extends React.Component {
   componentDidMount() {
@@ -13,15 +14,15 @@ class MovieDetails extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="MovieDetails">
         <button onClick={this.props.onClick}>SEARCH</button>
         <img src={this.props.poster_path} alt="poster" />
-        <span>{this.props.title}</span>
-        <span>{this.props.vote_average}</span>
-        <span>{this.props.tagline}</span>
-        <span>{this.props.release_date}</span>
-        <span>{this.props.runtime}</span>
-        <span>{this.props.overview}</span>
+        <span className="Title">{this.props.title}</span>
+        <span className="VoteAverage">{this.props.vote_average}</span>
+        <span className="TagLine">{this.props.tagline}</span>
+        <span className="ReleaseDate">{this.props.release_date}</span>
+        <span className="Runtime">{this.props.runtime}</span>
+        <span className="Overview">{this.props.overview}</span>
       </div>
     );
   }
@@ -29,7 +30,7 @@ class MovieDetails extends React.Component {
 
 MovieDetails.propTypes = {
   poster_path: PropTypes.string,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   vote_average: PropTypes.number,
   release_date: PropTypes.string,
   tagline: PropTypes.string,
@@ -47,6 +48,7 @@ MovieDetails.propTypes = {
 };
 
 MovieDetails.defaultProps = {
+  title: '',
   poster_path: null,
   release_date: null,
   tagline: null,
