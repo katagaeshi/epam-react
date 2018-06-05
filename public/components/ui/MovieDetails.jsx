@@ -28,13 +28,12 @@ class MovieDetails extends React.Component {
 }
 
 MovieDetails.propTypes = {
-  id: PropTypes.string.isRequired,
   poster_path: PropTypes.string,
   title: PropTypes.string.isRequired,
-  vote_average: PropTypes.string,
+  vote_average: PropTypes.number,
   release_date: PropTypes.string,
   tagline: PropTypes.string,
-  runtime: PropTypes.string,
+  runtime: PropTypes.number,
   overview: PropTypes.string,
   onClick: PropTypes.func.isRequired,
   notFound: PropTypes.bool,
@@ -45,8 +44,6 @@ MovieDetails.propTypes = {
   match: PropTypes.shape({
     path: PropTypes.string,
   }).isRequired,
-  setActivePanel: PropTypes.func.isRequired,
-  redirectOnRenderFail: PropTypes.func.isRequired,
 };
 
 MovieDetails.defaultProps = {

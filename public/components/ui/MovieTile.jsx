@@ -14,7 +14,7 @@ const MovieTile = props => (
 );
 
 MovieTile.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   poster_path: PropTypes.string,
   title: PropTypes.string.isRequired,
   release_date: PropTypes.string,
