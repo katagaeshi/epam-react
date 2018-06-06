@@ -2,21 +2,26 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './public/template.html',
-  filename: 'index.html',
-  inject: 'body',
-});
-
 module.exports = (env) => {
-  const processEnv = (env && env.NODE_ENV) || 'production';
+  console.log('chosen env: ', env);
+  if (!env) {
+    console.log('production is set by default');
+  }
+
+  const processEnv = env || 'production';
   console.log('NODE_ENV: ', processEnv);
 
   return {
-    entry: './public/app.jsx',
+    name: 'client',
+    target: 'web',
+
+    entry: [
+      'webpack-hot-middleware/client',
+      './public/app.jsx',
+    ],
+
     resolve: {
       extensions: ['.js', '.jsx', '.css'],
       modules: [
@@ -24,17 +29,21 @@ module.exports = (env) => {
         path.resolve(__dirname, './node_modules'),
       ],
     },
+
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'bundle.js',
     },
+
     mode: 'development',
+
     devServer: {
       contentBase: path.join(__dirname, 'public'),
       port: 9000,
       stats: 'errors-only',
       watchContentBase: true,
     },
+
     module: {
       rules: [{
         test: /\.css$/,
@@ -60,14 +69,16 @@ module.exports = (env) => {
         },
       }],
     },
+
     plugins: [
       new webpack.EnvironmentPlugin({
         NODE_ENV: processEnv,
       }),
-      HtmlWebpackPluginConfig,
       new MiniCssExtractPlugin({
         filename: './css/[name].css',
       }),
+      new webpack.NamedModulesPlugin(),
+      new webpack.HotModuleReplacementPlugin(),
     ],
   };
 };

@@ -2,24 +2,36 @@
 
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const webpack = require('webpack');
 
 module.exports = (env) => {
-  const processEnv = (env && env.NODE_ENV) || 'production';
+  console.log('chosen env: ', env);
+  if (!env) {
+    console.log('production is set by default');
+  }
+  const processEnv = env || 'production';
   console.log('NODE_ENV: ', processEnv);
 
   return {
+    name: 'server',
     target: 'node',
+
     entry: path.resolve(__dirname, './src/serverRenderer.jsx'),
+
     externals: [nodeExternals()],
+
     resolve: {
       extensions: ['.js', '.jsx', '.css'],
     },
+
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'serverRenderer.js',
       libraryTarget: 'commonjs2',
     },
+
     mode: processEnv,
+
     module: {
       rules: [{
         test: /\.css$/,
@@ -45,5 +57,9 @@ module.exports = (env) => {
         },
       }],
     },
+
+    plugins: [
+      new webpack.NamedModulesPlugin(),
+    ]
   };
 };

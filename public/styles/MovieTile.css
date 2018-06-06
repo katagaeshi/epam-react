@@ -1,5 +1,6 @@
 .MovieTile {
   display: grid;
+  grid-auto-columns: 2fr 1fr;
 }
 
 .MovieTile > img {

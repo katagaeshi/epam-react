@@ -3,7 +3,7 @@ import 'babel-polyfill';
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { hot } from 'react-hot-loader';
+import { hot, setConfig } from 'react-hot-loader';
 import PropTypes from 'prop-types';
 
 import ErrorBoundary from './ErrorBoundary';
@@ -40,5 +40,7 @@ Root.defaultProps = {
   location: null,
   context: null,
 };
+
+setConfig({ logLevel: 'debug' });
 
 export default hot(module)(Root);

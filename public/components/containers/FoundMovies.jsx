@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch => ({
   },
   onMovieClick(event) {
     if (event.target !== event.currentTarget) {
-      dispatch(setMovieDetails(event.target.dataset.id));
+      dispatch(setMovieDetails(event.target.dataset.id || null));
       dispatch(setActivePanel('MovieDetails'));
       dispatch(setRedirect(true));
     }
