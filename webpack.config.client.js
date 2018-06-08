@@ -31,9 +31,9 @@ module.exports = (env) => {
     },
 
     output: {
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'dist/'),
       filename: 'bundle.js',
-      publicPath: path.resolve(__dirname, 'dist'),
+      publicPath: path.resolve(__dirname, 'dist/'),
     },
 
     mode: 'development',
