@@ -1,3 +1,5 @@
+// @flow
+
 import { connect } from 'react-redux';
 import MovieDetails from '../ui/MovieDetails';
 import {

@@ -1,5 +1,6 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 
 import SearchField from './SearchField';
@@ -40,10 +41,38 @@ const FILTER = {
   GENRE: 'genres',
 };
 
-class SearchPanel extends React.Component {
+type Props = {
+  startSearch: (
+    query: string,
+    filter: string,
+    sortOption: string) => {},
+  handleSearchChange: () => {},
+  onFilterUpdate: () => {},
+  text: string,
+  filter: string,
+  sortOption: string,
+  query: string,
+  findMovies: (query: string) => {},
+  classes: {
+    searchPanel: string,
+    header: string,
+    searchButtonContainer: string,
+    searchButton: string,
+  },
+};
+
+class SearchPanel extends React.Component<Props> {
+  onClick: () => {};
+
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.query) {
+      this.props.findMovies(this.props.query);
+    }
   }
 
   onClick() {
@@ -52,12 +81,6 @@ class SearchPanel extends React.Component {
       FILTER[this.props.filter],
       this.props.sortOption,
     );
-  }
-
-  componentDidMount() {
-    if (this.props.query) {
-      this.props.findMovies(this.props.query);
-    }
   }
 
   render() {
@@ -92,26 +115,5 @@ class SearchPanel extends React.Component {
     );
   }
 }
-
-SearchPanel.propTypes = {
-  startSearch: PropTypes.func.isRequired,
-  handleSearchChange: PropTypes.func.isRequired,
-  onFilterUpdate: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
-  filter: PropTypes.string.isRequired,
-  sortOption: PropTypes.string.isRequired,
-  query: PropTypes.string,
-  findMovies: PropTypes.func.isRequired,
-  classes: PropTypes.shape({
-    searchPanel: PropTypes.string,
-    header: PropTypes.string,
-    searchButtonContainer: PropTypes.string,
-    searchButton: PropTypes.string,
-  }).isRequired,
-};
-
-SearchPanel.defaultProps = {
-  query: null,
-};
 
 export default injectSheet(styles)(SearchPanel);

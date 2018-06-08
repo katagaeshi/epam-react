@@ -1,5 +1,6 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 
 const styles = {
@@ -40,7 +41,23 @@ const styles = {
   },
 };
 
-const MovieTile = (props) => {
+type Props = {
+  id: number,
+  poster_path: string,
+  title: string,
+  release_date: string,
+  genres: Array<string>,
+  classes: {
+    movieTile: string,
+    image: string,
+    title: string,
+    releaseDate: string,
+    releaseDateSpan: string,
+    genre: string,
+  },
+};
+
+const MovieTile = (props: Props) => {
   const {
     movieTile,
     image,
@@ -59,22 +76,6 @@ const MovieTile = (props) => {
       <span className={genre}>{props.genres.toString()}</span>
     </div>
   );
-};
-
-MovieTile.propTypes = {
-  id: PropTypes.number.isRequired,
-  poster_path: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  release_date: PropTypes.string,
-  genres: PropTypes.arrayOf(PropTypes.string),
-  classes: PropTypes.shape({
-    movieTile: PropTypes.string,
-    image: PropTypes.string,
-    title: PropTypes.string,
-    releaseDate: PropTypes.string,
-    releaseDateSpan: PropTypes.string,
-    genre: PropTypes.string,
-  }).isRequired,
 };
 
 MovieTile.defaultProps = {

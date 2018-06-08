@@ -1,3 +1,5 @@
+// @flow
+
 /*
   As header and footer are the same currently in our program
   it means logically to make one component for both.
@@ -19,14 +21,14 @@ const styles = {
 
 const defaultText = 'netflixroulette';
 
-const RunningTitle = props => <span className={props.classes.runningTitle}>{props.text}</span>;
-
-RunningTitle.propTypes = {
-  text: PropTypes.string,
-  classes: PropTypes.shape({
-    runningTitle: PropTypes.string,
-  }).isRequired,
+type Props = {
+  text: string,
+  classes: {
+    runningTitle: string,
+  }
 };
+
+const RunningTitle = (props: Props) => <span className={props.classes.runningTitle}>{props.text}</span>;
 
 RunningTitle.defaultProps = {
   text: defaultText,

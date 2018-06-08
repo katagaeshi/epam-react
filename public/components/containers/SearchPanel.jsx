@@ -1,3 +1,5 @@
+// @flow
+
 import { connect } from 'react-redux';
 import SearchPanel from '../ui/SearchPanel';
 import {
@@ -5,7 +7,6 @@ import {
   setSearchText,
   setSearchBy,
   setRedirect,
-  setCameFromLink,
 } from '../../actions';
 
 const mapStateToProps = state => Object.assign(
@@ -26,11 +27,17 @@ const mapDispatchToProps = dispatch => ({
       value,
       filter,
       sortOption,
+      query: null,
     }));
     dispatch(setRedirect(true));
   },
   findMovies(query) {
-    dispatch(findMovies({ query }));
+    dispatch(findMovies({
+      query,
+      value: null,
+      filter: null,
+      sortOption: null,
+    }));
   },
   handleSearchChange(event) {
     dispatch(setSearchText(event.target.value));
@@ -38,7 +45,6 @@ const mapDispatchToProps = dispatch => ({
   onFilterUpdate(changeEvent) {
     dispatch(setSearchBy(changeEvent.target.value));
   },
-  setCameFromLink: value => dispatch(setCameFromLink(value)),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(SearchPanel);

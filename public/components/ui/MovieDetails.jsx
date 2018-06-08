@@ -1,5 +1,6 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 
 const styles = {
@@ -70,7 +71,39 @@ const styles = {
   },
 };
 
-class MovieDetails extends React.Component {
+type Props = {
+  poster_path: ?string,
+  title: string,
+  vote_average: ?string,
+  release_date: ?string,
+  tagline: ?string,
+  runtime: ?number,
+  overview: ?string,
+  onClick: () => {},
+  notFound: boolean,
+  fetchMovieDetails: (request: string) => {},
+  location: {
+    pathname: string,
+  },
+  match: {
+    path: string,
+  },
+  classes: {
+    movieDetails: string,
+    button: string,
+    image: string,
+    title: string,
+    voteAverage: string,
+    tagLine: string,
+    releaseDate: string,
+    runtime: string,
+    overview: string,
+  },
+};
+
+class MovieDetails extends React.Component<Props> {
+  static defaultProps: Object;
+
   componentDidMount() {
     if (this.props.notFound) {
       return this
@@ -95,36 +128,6 @@ class MovieDetails extends React.Component {
     );
   }
 }
-
-MovieDetails.propTypes = {
-  poster_path: PropTypes.string,
-  title: PropTypes.string,
-  vote_average: PropTypes.number,
-  release_date: PropTypes.string,
-  tagline: PropTypes.string,
-  runtime: PropTypes.number,
-  overview: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
-  notFound: PropTypes.bool,
-  fetchMovieDetails: PropTypes.func.isRequired,
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
-  match: PropTypes.shape({
-    path: PropTypes.string,
-  }).isRequired,
-  classes: PropTypes.shape({
-    movieDetails: PropTypes.string,
-    button: PropTypes.string,
-    image: PropTypes.string,
-    title: PropTypes.string,
-    voteAverage: PropTypes.string,
-    tagLine: PropTypes.string,
-    releaseDate: PropTypes.string,
-    runtime: PropTypes.string,
-    overview: PropTypes.string,
-  }).isRequired,
-};
 
 MovieDetails.defaultProps = {
   title: '',

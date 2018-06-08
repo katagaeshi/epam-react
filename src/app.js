@@ -7,6 +7,8 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackHotServerMiddleware = require('webpack-hot-server-middleware');
 const webpackConfig = require('./../webpack.config');
 
+// @flow
+
 const compiler = webpack(webpackConfig);
 
 console.log('APP env: ', process.env.NODE_ENV);

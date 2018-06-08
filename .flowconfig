@@ -1,6 +1,5 @@
 [ignore]
 ./dist/*
-./node_modules/*
 ./test/*
 [include]
 
@@ -9,5 +8,5 @@
 [lints]
 
 [options]
-
+module.system=haste
 [strict]

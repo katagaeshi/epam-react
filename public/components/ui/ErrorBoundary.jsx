@@ -1,14 +1,35 @@
+// @flow
+
 import React from 'react';
 
-class ErrorBoundary extends React.Component {
-  constructor(props) {
+type Props = {
+  children: any,
+};
+
+type State = {
+  hasError: boolean,
+  error: ?Object,
+  errorInfo: ?{
+    componentStack: string,
+  },
+};
+
+class ErrorBoundary extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       hasError: false,
+      error: null,
+      errorInfo: null,
     };
   }
 
-  componentDidCatch(error, errorInfo) {
+  componentDidCatch(
+    error: Object,
+    errorInfo: {
+      componentStack: string,
+    },
+  ) {
     this.setState({
       hasError: true,
       error,
@@ -24,7 +45,7 @@ class ErrorBoundary extends React.Component {
           <details style={{ whiteSpace: 'pre-wrap' }}>
             {this.state.error && this.state.error.toString()}
             <br />
-            {this.state.errorInfo.componentStack}
+            {this.state.errorInfo && this.state.errorInfo.componentStack}
           </details>
         </div>
       );

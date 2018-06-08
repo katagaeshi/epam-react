@@ -1,5 +1,6 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import RadioButtonGroup from './RadioButtonGroup';
 
@@ -12,20 +13,20 @@ const styles = {
 
 const filterText = 'SEARCH BY';
 
-const SearchFilter = props => (
+type Props = {
+  options: Array<string>,
+  idPrefix: string,
+  classes: {
+    searchFilter: string,
+  },
+};
+
+const SearchFilter = (props: Props) => (
   <div className={props.classes.searchFilter}>
     <span>{filterText}</span>
     <RadioButtonGroup idPrefix="SearchFilter" {...props} />
   </div>
 );
-
-SearchFilter.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string),
-  idPrefix: PropTypes.string,
-  classes: PropTypes.shape({
-    searchFilter: PropTypes.string,
-  }).isRequired,
-};
 
 SearchFilter.defaultProps = {
   options: ['TITLE', 'GENRE'],

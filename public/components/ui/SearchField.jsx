@@ -1,5 +1,6 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 
 const styles = {
@@ -11,7 +12,18 @@ const styles = {
 
 const placeholder = 'Enter movie info here';
 
-class SearchField extends React.Component {
+type Props = {
+  handleChange: () => {},
+  onEnter: () => {},
+  classes: {
+    searchField: string,
+  },
+};
+
+class SearchField extends React.Component<Props> {
+  handleChange: () => {};
+  handleKeyPress: () => {};
+
   constructor(props) {
     super(props);
     this.handleChange = props.handleChange;
@@ -33,13 +45,5 @@ class SearchField extends React.Component {
     />);
   }
 }
-
-SearchField.propTypes = {
-  handleChange: PropTypes.func.isRequired,
-  onEnter: PropTypes.func.isRequired,
-  classes: PropTypes.shape({
-    searchField: PropTypes.string,
-  }).isRequired,
-};
 
 export default injectSheet(styles)(SearchField);

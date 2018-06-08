@@ -1,5 +1,6 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 
 import MovieTile from './MovieTile';
@@ -19,7 +20,19 @@ const styles = {
   },
 };
 
-const extractMovies = (movies, onClick, classes) => {
+type Movie = {
+  src: string,
+  title: string,
+  year: number,
+  genre: string,
+};
+const extractMovies = (
+  movies: Array<Movie>,
+  onClick: () => {},
+  classes: {
+    foundMovies: string,
+  },
+) => {
   const tiles = movies.map((movie, idx) => {
     const key = idx;
     return (<MovieTile
@@ -39,7 +52,22 @@ const extractMovies = (movies, onClick, classes) => {
   );
 };
 
-const FoundMovies = (props) => {
+type Props = {
+  movies: Array<Movie>,
+  total: number,
+  option: string,
+  onSortUpdate: (
+    event: Object,
+    movies: Array<Movie>
+  ) => {},
+  onMovieClick: () => {},
+  classes: {
+    emptyResults: string,
+    foundMovies: string,
+  },
+};
+
+const FoundMovies = (props: Props) => {
   const {
     movies,
     option,
@@ -81,23 +109,6 @@ const FoundMovies = (props) => {
       }
     </div>
   );
-};
-
-FoundMovies.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.shape({
-    src: PropTypes.string,
-    title: PropTypes.string.isRequired,
-    year: PropTypes.number,
-    genre: PropTypes.string,
-  })),
-  total: PropTypes.number,
-  option: PropTypes.string.isRequired,
-  onSortUpdate: PropTypes.func.isRequired,
-  onMovieClick: PropTypes.func.isRequired,
-  classes: PropTypes.shape({
-    emptyResults: PropTypes.string,
-    foundMovies: PropTypes.string,
-  }),
 };
 
 FoundMovies.defaultProps = {

@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
@@ -29,7 +31,19 @@ const styles = {
 
 const getCheckedProperty = (checked, option) => (checked && option === checked);
 
-const RadioButtonGroup = (props) => {
+type Props = {
+  options: Array<string>,
+  idPrefix: string,
+  checked: string,
+  onUpdate: () => {},
+  classes: {
+    radioButton: string,
+    input: string,
+    label: string,
+  },
+};
+
+const RadioButtonGroup = (props: Props) => {
   const options = props.options.map((option, idx) => {
     const id = props.idPrefix + idx;
     const key = id;
@@ -53,18 +67,6 @@ const RadioButtonGroup = (props) => {
     );
   });
   return options;
-};
-
-RadioButtonGroup.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
-  idPrefix: PropTypes.string.isRequired,
-  checked: PropTypes.string,
-  onUpdate: PropTypes.func.isRequired,
-  classes: PropTypes.shape({
-    radioButton: PropTypes.string,
-    input: PropTypes.string,
-    label: PropTypes.string,
-  }).isRequired,
 };
 
 RadioButtonGroup.defaultProps = {

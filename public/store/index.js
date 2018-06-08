@@ -1,3 +1,5 @@
+// @flow
+
 import thunk from 'redux-thunk';
 import { persistReducer } from 'redux-persist';
 import storage from 'localforage';
@@ -9,12 +11,14 @@ import appReducer from './reducers';
 /**
  * Logs all actions and states after they are dispatched.
  */
-const logger = store => next => (action) => {
+const logger = (store: {
+  getState: () => {},
+}) => (next: (action: {}) => {}) => (action: { type: string }) => {
   console.group(action.type);
   console.info('dispatching', action);
   const result = next(action);
   console.log('next state', store.getState());
-  console.groupEnd(action.type);
+  console.groupEnd();
   return result;
 };
 
@@ -26,7 +30,7 @@ const persistConfig = {
 
 const reducer = persistReducer(persistConfig, appReducer);
 
-export default (state) => {
+export default (state: {}) => {
   const store = compose(applyMiddleware(
     thunk,
     logger,

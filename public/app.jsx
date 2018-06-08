@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { hydrate } from 'react-dom';
 
@@ -9,16 +11,24 @@ import Root from './components/ui/Root';
 
 const { store } = configureStore(window.PRELOADED_STATE);
 
-hydrate(
-  <Root
-    Router={BrowserRouter}
-    store={store}
-  />,
-  document.getElementById('root'),
-  () => {
-    if (window.mode !== 'development') {
-      const ssStyles = document.getElementById('server-side-styles');
-      ssStyles.parentNode.removeChild(ssStyles);
-    }
-  },
-);
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  hydrate(
+    <Root
+      Router={BrowserRouter}
+      store={store}
+    />,
+    rootElement,
+    () => {
+      if (window.mode !== 'development') {
+        const ssStyles = document.getElementById('server-side-styles');
+        if (ssStyles && ssStyles.parentNode) {
+          ssStyles.parentNode.removeChild(ssStyles);
+        }
+      }
+    },
+  );
+} else {
+  throw new Error('root element not found');
+}
+

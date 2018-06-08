@@ -1,5 +1,6 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   Redirect,
   Switch,
@@ -16,7 +17,18 @@ const styles = {};
 
 const component404 = () => (<h1>404</h1>);
 
-const MainPage = (props) => {
+type Props = {
+  redirect: boolean,
+  setRedirect: (redirect: boolean) => {},
+  activePanel: string,
+  movieDetailsId: string,
+  searchQuery: string,
+  location: {
+    pathname: string,
+  },
+};
+
+const MainPage = (props: Props) => {
   let cameFromLink = false;
   if (props.redirect) {
     props.setRedirect(false);
@@ -72,17 +84,6 @@ const MainPage = (props) => {
       <RunningTitle />
     </div>
   );
-};
-
-MainPage.propTypes = {
-  redirect: PropTypes.bool.isRequired,
-  setRedirect: PropTypes.func.isRequired,
-  activePanel: PropTypes.string.isRequired,
-  movieDetailsId: PropTypes.string.isRequired,
-  searchQuery: PropTypes.string.isRequired,
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default injectSheet(styles)(MainPage);

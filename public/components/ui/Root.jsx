@@ -1,10 +1,11 @@
+// @flow
+
 import 'isomorphic-fetch';
 import 'babel-polyfill';
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { hot, setConfig } from 'react-hot-loader';
-import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 
 import ErrorBoundary from './ErrorBoundary';
@@ -12,12 +13,24 @@ import MainPage from './../containers/MainPage';
 
 const styles = {};
 
+type Props = {
+  Router: () => any,
+  location: string,
+  context: {
+    url: string,
+  },
+  store: {
+    dispatch: () => {},
+    getState: () => {},
+  },
+};
+
 const Root = ({
   Router,
   store,
   location,
   context,
-}) => (
+}: Props) => (
   <ErrorBoundary>
     <Provider store={store}>
       <Router location={location} context={context}>
@@ -26,18 +39,6 @@ const Root = ({
     </Provider>
   </ErrorBoundary>
 );
-
-Root.propTypes = {
-  Router: PropTypes.func.isRequired,
-  location: PropTypes.string,
-  context: PropTypes.shape({
-    url: PropTypes.string,
-  }),
-  store: PropTypes.shape({
-    dispatch: PropTypes.func.isRequired,
-    getState: PropTypes.func.isRequired,
-  }).isRequired,
-};
 
 Root.defaultProps = {
   location: null,
