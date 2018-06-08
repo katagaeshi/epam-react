@@ -26,6 +26,7 @@ module.exports = (env) => {
 
     output: {
       path: path.resolve(__dirname, 'dist'),
+      publicPath: path.resolve(__dirname, 'dist'),
       filename: 'serverRenderer.js',
       libraryTarget: 'commonjs2',
     },

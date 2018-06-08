@@ -5,11 +5,14 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+import injectSheet from 'react-jss';
 
 import RunningTitle from './RunningTitle';
 import SearchPanel from './../containers/SearchPanel';
 import FoundMovies from './../containers/FoundMovies';
 import MovieDetails from './../containers/MovieDetails';
+
+const styles = {};
 
 const component404 = () => (<h1>404</h1>);
 
@@ -82,4 +85,4 @@ MainPage.propTypes = {
   }).isRequired,
 };
 
-export default MainPage;
+export default injectSheet(styles)(MainPage);

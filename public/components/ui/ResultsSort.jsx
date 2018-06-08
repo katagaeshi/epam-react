@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
+
 import RadioButtonGroup from './RadioButtonGroup';
+
+const styles = {};
 
 const labelText = 'Sort by';
 
@@ -24,4 +28,4 @@ ResultsSort.defaultProps = {
   idPrefix: 'ResultsSort-',
 };
 
-export default ResultsSort;
+export default injectSheet(styles)(ResultsSort);

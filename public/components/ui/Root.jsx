@@ -5,9 +5,12 @@ import { Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { hot, setConfig } from 'react-hot-loader';
 import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 
 import ErrorBoundary from './ErrorBoundary';
 import MainPage from './../containers/MainPage';
+
+const styles = {};
 
 const Root = ({
   Router,
@@ -43,4 +46,4 @@ Root.defaultProps = {
 
 setConfig({ logLevel: 'debug' });
 
-export default hot(module)(Root);
+export default hot(module)(injectSheet(styles)(Root));

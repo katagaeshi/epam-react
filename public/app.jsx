@@ -16,7 +16,9 @@ hydrate(
   />,
   document.getElementById('root'),
   () => {
-    const ssStyles = document.getElementById('server-side-styles');
-    ssStyles.parentNode.removeChild(ssStyles);
+    if (window.mode !== 'development') {
+      const ssStyles = document.getElementById('server-side-styles');
+      ssStyles.parentNode.removeChild(ssStyles);
+    }
   },
 );

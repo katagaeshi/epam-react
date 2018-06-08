@@ -1,8 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
+
 import SearchField from './SearchField';
 import SearchFilter from './SearchFilter';
-import '../../styles/SearchPanel.css';
+
+const styles = {
+  searchPanel: {
+    display: 'grid',
+    'grid-template-rows': '20px 20px 20px',
+    'grid-template-columns': '300px',
+    'background-color': 'gray',
+    color: 'white',
+  },
+
+  header: {
+    'grid-row': '1',
+  },
+
+  searchButtonContainer: {
+    'grid-row': '3',
+    'grid-column': '2 / 2',
+    'text-align': 'right',
+  },
+
+  searchButton: {
+    'background-color': 'pink',
+    color: 'white',
+    border: 'none',
+    width: '100px',
+    height: '20px',
+  },
+};
 
 const labelText = 'FIND YOUR MOVIE';
 
@@ -25,12 +54,21 @@ class SearchPanel extends React.Component {
     );
   }
 
-  render() {
+  componentDidMount() {
     if (this.props.query) {
       this.props.findMovies(this.props.query);
     }
+  }
+
+  render() {
+    const {
+      searchPanel,
+      header,
+      searchButtonContainer,
+      searchButton,
+    } = this.props.classes;
     return (
-      <div className="SearchPanel">
+      <div className={searchPanel}>
         <span className="Header">
           {labelText}
         </span>
@@ -42,9 +80,9 @@ class SearchPanel extends React.Component {
           onUpdate={this.props.onFilterUpdate}
           checked={this.props.filter}
         />
-        <div className="SearchButtonContainer">
+        <div className={searchButtonContainer}>
           <button
-            className="SearchButton"
+            className={searchButton}
             onClick={this.onClick}
           >
           SEARCH
@@ -64,10 +102,16 @@ SearchPanel.propTypes = {
   sortOption: PropTypes.string.isRequired,
   query: PropTypes.string,
   findMovies: PropTypes.func.isRequired,
+  classes: PropTypes.shape({
+    searchPanel: PropTypes.string,
+    header: PropTypes.string,
+    searchButtonContainer: PropTypes.string,
+    searchButton: PropTypes.string,
+  }).isRequired,
 };
 
 SearchPanel.defaultProps = {
   query: null,
 };
 
-export default SearchPanel;
+export default injectSheet(styles)(SearchPanel);

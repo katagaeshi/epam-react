@@ -1,12 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import RadioButtonGroup from './RadioButtonGroup';
-import '../../styles/SearchFilter.css';
+
+const styles = {
+  searchFilter: {
+    'grid-row': '3',
+    'grid-column': '1 / 1',
+  },
+};
 
 const filterText = 'SEARCH BY';
 
 const SearchFilter = props => (
-  <div className="SearchFilter">
+  <div className={props.classes.searchFilter}>
     <span>{filterText}</span>
     <RadioButtonGroup idPrefix="SearchFilter" {...props} />
   </div>
@@ -14,8 +21,10 @@ const SearchFilter = props => (
 
 SearchFilter.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string),
-  checked: PropTypes.string,
   idPrefix: PropTypes.string,
+  classes: PropTypes.shape({
+    searchFilter: PropTypes.string,
+  }).isRequired,
 };
 
 SearchFilter.defaultProps = {
@@ -23,4 +32,4 @@ SearchFilter.defaultProps = {
   idPrefix: 'SearchFilter-',
 };
 
-export default SearchFilter;
+export default injectSheet(styles)(SearchFilter);

@@ -6,7 +6,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import '../../styles/RunningTitle.css';
 
 const styles = {
   runningTitle: {

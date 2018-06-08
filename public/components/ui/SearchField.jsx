@@ -1,6 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../styles/SearchField.css';
+import injectSheet from 'react-jss';
+
+const styles = {
+  searchField: {
+    'grid-row': '2',
+    'grid-column': '1 / 3',
+  },
+};
 
 const placeholder = 'Enter movie info here';
 
@@ -19,7 +26,7 @@ class SearchField extends React.Component {
 
   render() {
     return (<input
-      className="SearchField"
+      className={this.props.classes.searchField}
       placeholder={placeholder}
       onChange={this.handleChange}
       onKeyPress={this.handleKeyPress}
@@ -30,6 +37,9 @@ class SearchField extends React.Component {
 SearchField.propTypes = {
   handleChange: PropTypes.func.isRequired,
   onEnter: PropTypes.func.isRequired,
+  classes: PropTypes.shape({
+    searchField: PropTypes.string,
+  }).isRequired,
 };
 
-export default SearchField;
+export default injectSheet(styles)(SearchField);

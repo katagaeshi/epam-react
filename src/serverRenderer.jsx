@@ -27,8 +27,9 @@ function renderHTML(
         <body>
           <div id="root">${html}</div>
           <script>
-            window.PRELOADED_STATE = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
-            window.mode = ${process.env.NODE_ENV.toString()};
+            window.PRELOADED_STATE = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')};
+            const mode = "${process.env.NODE_ENV.toString()}";
+            window.mode = mode;
           </script>
           <script src="/bundle.js"></script>
         </body>

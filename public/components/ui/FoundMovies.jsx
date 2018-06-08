@@ -1,11 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
+
 import MovieTile from './MovieTile';
 import ResultsSort from './ResultsSort';
-import '../../styles/EmptyResults.css';
-import '../../styles/FoundMovies.css';
 
-const extractMovies = (movies, onClick) => {
+const styles = {
+  emptyResults: {
+    display: 'block',
+    'text-align': 'center',
+    'font-size': '36px',
+  },
+  foundMovies: {
+    display: 'grid',
+    'grid-gap': '15px',
+    'grid-row-gap': '15px',
+    'grid-template-columns': 'repeat(auto-fit, minmax(220px, 1fr))',
+  },
+};
+
+const extractMovies = (movies, onClick, classes) => {
   const tiles = movies.map((movie, idx) => {
     const key = idx;
     return (<MovieTile
@@ -18,7 +32,7 @@ const extractMovies = (movies, onClick) => {
     <div
       onClick={onClick}
       role="presentation"
-      className="FoundMovies"
+      className={classes.foundMovies}
     >
       {tiles}
     </div>
@@ -50,7 +64,7 @@ const FoundMovies = (props) => {
   }
   const totalMessage = (
     <span
-      className={!movies.length ? 'EmptyResults' : null}
+      className={!movies.length ? props.classes.emptyResults : null}
     >
       {moviesFoundMessage}
     </span>
@@ -62,7 +76,7 @@ const FoundMovies = (props) => {
       {resultsSort}
       {
         movies ?
-          extractMovies(movies, props.onMovieClick) :
+          extractMovies(movies, props.onMovieClick, props.classes) :
           null
       }
     </div>
@@ -80,6 +94,10 @@ FoundMovies.propTypes = {
   option: PropTypes.string.isRequired,
   onSortUpdate: PropTypes.func.isRequired,
   onMovieClick: PropTypes.func.isRequired,
+  classes: PropTypes.shape({
+    emptyResults: PropTypes.string,
+    foundMovies: PropTypes.string,
+  }),
 };
 
 FoundMovies.defaultProps = {
@@ -87,4 +105,4 @@ FoundMovies.defaultProps = {
   total: 'No films found',
 };
 
-export default FoundMovies;
+export default injectSheet(styles)(FoundMovies);
