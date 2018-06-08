@@ -1,13 +1,13 @@
 const chromedriver = require('chromedriver');
 
 module.exports = {
-  before : function(browser, done) {
+  before(browser, done) {
     chromedriver.start();
 
     done();
   },
 
-  after : function(browser, done) {
+  after(browser, done) {
     chromedriver.stop();
 
     done();

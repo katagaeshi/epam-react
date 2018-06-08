@@ -1,7 +1,5 @@
 import thunk from 'redux-thunk';
-import {
-  persistReducer,
-} from 'redux-persist';
+import { persistReducer } from 'redux-persist';
 import storage from 'localforage';
 
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';

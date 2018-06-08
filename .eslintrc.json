@@ -1,15 +1,22 @@
 {
-    "extends": "airbnb",
-    "env": {
-      "browser": true,
-      "node": true,
-      "jest/globals": true
-    },
-    "plugins": ["jest"],
-    "globals": {
-      "React": true,
-      "mount": true,
-      "shallow": true,
-      "render": true
-    }
+  "parser": "babel-eslint",
+  "rules": {
+    "max-len": [1, 120, 2, {
+      "ignoreComments": true
+    }],
+    "no-console": [0]
+  },
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest/globals": true
+  },
+  "plugins": ["jest"],
+  "globals": {
+    "React": true,
+    "mount": true,
+    "shallow": true,
+    "render": true
+  }
 }
