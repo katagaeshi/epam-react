@@ -1,6 +1,7 @@
 // @flow
 
 import { connect } from 'react-redux';
+import { List } from 'immutable';
 import FoundMovies from '../ui/FoundMovies';
 import {
   setSortBy,
@@ -18,13 +19,21 @@ const mapStateToProps = state => (
   })
 );
 
+type EventTarget = {
+  dataset: { id: number },
+};
+
 const mapDispatchToProps = dispatch => ({
-  onSortUpdate(changeEvent, movies) {
+  onSortUpdate(changeEvent: { target: { value: string }}, movies: List<{}>) {
     const sortOption = changeEvent.target.value;
     dispatch(setSortBy(sortOption));
     dispatch(sortMovies(sortOption, movies));
   },
-  onMovieClick(event) {
+  onMovieClick(event: {
+    target: EventTarget,
+    currentTarget: EventTarget,
+    stopPropagation: () => {},
+  }) {
     if (event.target !== event.currentTarget) {
       dispatch(setMovieDetails(event.target.dataset.id || null));
       dispatch(setActivePanel('MovieDetails'));

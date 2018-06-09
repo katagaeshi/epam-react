@@ -1,6 +1,7 @@
 // @flow
 
 import actions from './constants';
+import { List } from 'immutable';
 
 export const setSearchText = (text: string) => ({
   type: actions.SET_SEARCH_TEXT,
@@ -17,7 +18,7 @@ export const setSortBy = (option: string) => ({
   payload: option,
 });
 
-export const setMovieDetails = (id: number) => ({
+export const setMovieDetails = (id: ?number) => ({
   type: actions.SET_MOVIE_DETAILS,
   payload: id,
 });
@@ -58,17 +59,17 @@ const COMPARATOR = {
 
 export const sortMovies = (
   sortOption: string,
-  movies: Array<{ length: number }>,
+  movies: List<{}>,
 ) : {
   type: string,
   payload: {
     total: number,
-    movies: Array<{ length: number }>,
+    movies: List<{}>,
   }
 } => ({
   type: actions.SET_FOUND_MOVIES,
   payload: {
-    total: movies.length,
+    total: movies.size,
     movies: movies.sort(COMPARATOR[sortOption]),
   },
 });
@@ -126,7 +127,7 @@ export const findMovies = ({
         type: actions.SET_FOUND_MOVIES,
         payload: {
           total: results.total,
-          movies: results.data,
+          movies: List(results.data),
         },
       });
       dispatch({
@@ -139,7 +140,7 @@ export const findMovies = ({
         type: actions.SET_FOUND_MOVIES,
         payload: {
           total: 0,
-          movies: [],
+          movies: List(),
         },
       });
       dispatch({
@@ -164,7 +165,7 @@ export const fetchMovieDetails = (id: number) => (dispatch: ({type: string}) => 
         type: actions.SET_FOUND_MOVIES,
         payload: {
           total: 1,
-          movies: [results],
+          movies: List([results]),
         },
       });
       dispatch({

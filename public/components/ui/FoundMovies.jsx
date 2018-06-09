@@ -2,6 +2,7 @@
 
 import React from 'react';
 import injectSheet from 'react-jss';
+import { List } from 'immutable';
 
 import MovieTile from './MovieTile';
 import ResultsSort from './ResultsSort';
@@ -27,7 +28,7 @@ type Movie = {
   genre: string,
 };
 const extractMovies = (
-  movies: Array<Movie>,
+  movies: List<Movie>,
   onClick: () => {},
   classes: {
     foundMovies: string,
@@ -53,12 +54,12 @@ const extractMovies = (
 };
 
 type Props = {
-  movies: Array<Movie>,
+  movies: List<Movie>,
   total: number,
   option: string,
   onSortUpdate: (
     event: Object,
-    movies: Array<Movie>
+    movies: List<Movie>
   ) => {},
   onMovieClick: () => {},
   classes: {
@@ -92,7 +93,7 @@ const FoundMovies = (props: Props) => {
   }
   const totalMessage = (
     <span
-      className={!movies.length ? props.classes.emptyResults : null}
+      className={!movies.size ? props.classes.emptyResults : null}
     >
       {moviesFoundMessage}
     </span>
@@ -112,7 +113,7 @@ const FoundMovies = (props: Props) => {
 };
 
 FoundMovies.defaultProps = {
-  movies: [],
+  movies: List(),
   total: 'No films found',
 };
 
