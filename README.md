@@ -16,21 +16,7 @@ Used technologies:
 
 Known issues:
 - Nightwatch does not kill chrome process at the end of the e2e tests
-- node_modules/immutable/dist/immutable.js.flow should be fixed:
-
-declare class Seq<K,V> extends _Iterable<K,V, typeof KeyedSeq, typeof IndexedSeq, typeof SetSeq> {
-  static <K,V>(iter: KeyedSeq<K,V>):   KeyedSeq<K,V>;
-  static <T>  (iter: SetSeq<T>):       SetSeq<K,V>;
-  static <T>  (iter?: ESIterable<T>):  IndexedSeq<T>;
-  static <K,V>(iter: { [key: K]: V }): KeyedSeq<K,V>;
-
-  static isSeq(maybeSeq: any): boolean;
-  // this line should be commented to not generate flow errors
+- if node_modules/immutable/dist/immutable.js.flow fails on 'flow' command just comment failing line:  
   // static of<T>(...values: T[]): IndexedSeq<T>;
-
-  size: ?number;
-  cacheResult(): this;
-  toSeq(): this;
-}
 
 - css markup looks weird like my memories about kindergarten
