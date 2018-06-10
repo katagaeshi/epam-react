@@ -12,6 +12,7 @@ const styles = {
   image: {
     'object-fit': 'contain',
     'max-width': '100%',
+    'max-height': '350px',
     'grid-row': '1 / 1',
     'grid-column': '1 / 3',
   },

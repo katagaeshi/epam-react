@@ -86,13 +86,12 @@ class SearchPanel extends React.Component<Props> {
   render() {
     const {
       searchPanel,
-      header,
       searchButtonContainer,
       searchButton,
     } = this.props.classes;
     return (
       <div className={searchPanel}>
-        <span className="Header">
+        <span className={this.props.classes.header}>
           {labelText}
         </span>
         <SearchField

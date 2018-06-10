@@ -17,6 +17,7 @@
     "test:e2e": "nightwatch --env default",
     "start": "node_modules/.bin/cross-env NODE_ENV=production node ./src/app.js",
     "start:dev": "node_modules/.bin/cross-env NODE_ENV=development node ./src/app.js",
+    "storybook": "node_modules/.bin/start-storybook -p 9001 -c .storybook",
     "webpack:bundle:dev": "node_modules/.bin/cross-env NODE_ENV=development node_modules/.bin/webpack --config ./webpack.config.js",
     "webpack:bundle:prod": "node_modules/.bin/cross-env NODE_ENV=production  node_modules/.bin/webpack --config ./webpack.config.js",
     "webpack:server:dev": "node_modules/.bin/webpack-dev-server --hot --env.NODE_ENV=development --config ./webpack.config.js",
@@ -26,6 +27,7 @@
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "es-abstract": "^1.12.0",
     "express": "^4.16.3",
     "immutable": "^3.8.2",
     "isomorphic-fetch": "^2.2.1",
@@ -52,6 +54,8 @@
     "webpack-hot-server-middleware": "^0.5.0"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.4.7",
+    "@storybook/react": "^4.0.0-alpha.3",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^22.4.4",

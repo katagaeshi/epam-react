@@ -25,17 +25,19 @@ const styles = {
     'max-width': '100%',
   },
 
-  title: {
+  titleAndVote: {
     'grid-row': '1 / 1',
     'grid-column': '2 / 2',
+  },
+
+  title: {
     'font-weight': 'bold',
     'font-size': '20px',
     color: 'pink',
+    'padding-right': '10px',
   },
 
   voteAverage: {
-    'grid-row': '1 / 1',
-    'grid-column': '3 / 3',
     color: 'white',
     'border-radius': '50%',
     border: 'solid white',
@@ -44,6 +46,7 @@ const styles = {
     'text-align': 'center',
     'vertical-align': 'middle',
     'padding-top': '5px',
+    display: 'inline-block',
   },
 
   tagLine: {
@@ -92,6 +95,7 @@ type Props = {
     movieDetails: string,
     button: string,
     image: string,
+    titleAndVote: string,
     title: string,
     voteAverage: string,
     tagLine: string,
@@ -118,8 +122,10 @@ class MovieDetails extends React.Component<Props> {
       <div className={this.props.classes.movieDetails}>
         <button className={this.props.classes.button} onClick={this.props.onClick}>SEARCH</button>
         <img className={this.props.classes.image} src={this.props.poster_path} alt="poster" />
-        <span className={this.props.classes.title}>{this.props.title}</span>
-        <span className={this.props.classes.voteAverage}>{this.props.vote_average}</span>
+        <div className={this.props.classes.titleAndVote}>
+          <span className={this.props.classes.title}>{this.props.title}</span>
+          <span className={this.props.classes.voteAverage}>{this.props.vote_average}</span>
+        </div>
         <span className={this.props.classes.tagLine}>{this.props.tagline}</span>
         <span className={this.props.classes.releaseDate}>{this.props.release_date}</span>
         <span className={this.props.classes.runtime}>{this.props.runtime}</span>
