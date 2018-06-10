@@ -1,72 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FoundMovies Snapshot (with movies) 1`] = `
-<div>
-  <span
-    className={null}
-  >
-    Let's see what we've found: movies found
-  </span>
-  <ResultsSort
-    checked="release_date"
-    idPrefix="ResultsSort-"
-    onUpdate={[Function]}
-    options={
-      Array [
-        "release date",
-        "rating",
-      ]
+<FoundMovies
+  classes={
+    Object {
+      "emptyResults": "FoundMovies-emptyResults-0-1-1",
+      "foundMovies": "FoundMovies-foundMovies-0-1-2",
     }
-  />
-  <div
-    onClick={[Function]}
-    role="presentation"
-  >
-    <MovieTile
-      genres={
-        Array [
+  }
+  movies={
+    Array [
+      Object {
+        "genres": Array [
           "cyberpunk",
-        ]
-      }
-      idx={0}
-      key="0"
-      poster_path={null}
-      release_date={null}
-      title="Robocop: Winter Soldier"
-    />
-    <MovieTile
-      genres={
-        Array [
+        ],
+        "title": "Robocop: Winter Soldier",
+      },
+      Object {
+        "genres": Array [
           "dieselpunk",
-        ]
-      }
-      idx={1}
-      key="1"
-      poster_path={null}
-      release_date={null}
-      title="Lord of The Rings: Return of Joker"
-    />
-  </div>
-</div>
+        ],
+        "title": "Lord of The Rings: Return of Joker",
+      },
+    ]
+  }
+  onMovieClick={[Function]}
+  onSortUpdate={[Function]}
+  option="release_date"
+  total="Let's see what we've found:"
+/>
 `;
 
 exports[`FoundMovies Snapshot (without movies) 1`] = `
-<div>
-  <span
-    className="EmptyResults"
-  >
-    No films found movies found
-  </span>
-  <ResultsSort
-    checked="release_date"
-    idPrefix="ResultsSort-"
-    onUpdate={[Function]}
-    options={
-      Array [
-        "release date",
-        "rating",
-      ]
+<FoundMovies
+  classes={
+    Object {
+      "emptyResults": "FoundMovies-emptyResults-0-1-1",
+      "foundMovies": "FoundMovies-foundMovies-0-1-2",
     }
-  />
-</div>
+  }
+  movies={Immutable.List []}
+  onMovieClick={[Function]}
+  onSortUpdate={[Function]}
+  option="release_date"
+  total="No films found"
+/>
 `;

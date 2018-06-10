@@ -1,22 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchFilter Snapshot 1`] = `
-<div
-  className="SearchFilter"
->
-  <span>
-    SEARCH BY
-  </span>
-  <RadioButtonGroup
-    checked={null}
-    idPrefix="SearchFilter-"
-    onUpdate={[Function]}
-    options={
-      Array [
-        "TITLE",
-        "GENRE",
-      ]
+<SearchFilter
+  classes={
+    Object {
+      "searchFilter": "SearchFilter-searchFilter-0-1-1",
     }
-  />
-</div>
+  }
+  idPrefix="SearchFilter-"
+  onUpdate={[Function]}
+  options={
+    Array [
+      "TITLE",
+      "GENRE",
+    ]
+  }
+/>
 `;

@@ -1,16 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MainPage Snapshot 1`] = `
-<div>
-  <ErrorBoundary>
-    <RunningTitle
-      text="netflixroulette"
-    />
-    <Connect(SearchPanel) />
-    <Connect(FoundMovies) />
-    <RunningTitle
-      text="netflixroulette"
-    />
-  </ErrorBoundary>
-</div>
+<MainPage
+  activePanel="SearchPanel"
+  classes={Object {}}
+  onEnter={[Function]}
+/>
 `;

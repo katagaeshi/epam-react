@@ -6,7 +6,7 @@ exports[`ResultsSort Snapshot 1`] = `
     htmlFor="ResultsSort"
   >
     Sort by
-    <RadioButtonGroup
+    <Jss(RadioButtonGroup)
       checked="release date"
       idPrefix="ResultsSort-"
       onUpdate={[Function]}

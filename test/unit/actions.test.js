@@ -1,3 +1,4 @@
+import { List } from 'immutable';
 import actions from 'public/constants';
 import {
   setSearchText,
@@ -52,7 +53,7 @@ describe('actions', () => {
       vote_average: 2,
       release_date: 1,
     };
-    const movies = [movie1, movie2, movie3];
+    const movies = List([movie1, movie2, movie3]);
     it('by rating', () => {
       expect(sortMovies(
         'rating',
@@ -60,7 +61,7 @@ describe('actions', () => {
       )).toEqual({
         type: actions.SET_FOUND_MOVIES,
         payload: {
-          movies: [movie1, movie3, movie2],
+          movies: List([movie1, movie3, movie2]),
           total: 3,
         },
       });
@@ -72,7 +73,7 @@ describe('actions', () => {
       )).toEqual({
         type: actions.SET_FOUND_MOVIES,
         payload: {
-          movies: [movie3, movie1, movie2],
+          movies: List([movie3, movie1, movie2]),
           total: 3,
         },
       });

@@ -1,9 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RunningTitle Snapshot 1`] = `
-<span
-  className="RunningTitle"
->
-  netflixroulette
-</span>
+<RunningTitle
+  classes={
+    Object {
+      "runningTitle": "RunningTitle-runningTitle-0-1-1",
+    }
+  }
+  text="netflixroulette"
+/>
 `;

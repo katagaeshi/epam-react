@@ -1,14 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioButtonGroup Snapshot 1`] = `
-Array [
-  <div
-    className="RadioButton"
-    key="radioButtonTest0"
-  />,
-  <div
-    className="RadioButton"
-    key="radioButtonTest1"
-  />,
-]
+<RadioButtonGroup
+  checked="Pikachu"
+  classes={
+    Object {
+      "input": "RadioButtonGroup-input-0-1-3",
+      "label": "RadioButtonGroup-label-0-1-2",
+      "radioButton": "RadioButtonGroup-radioButton-0-1-1",
+    }
+  }
+  idPrefix="radioButtonTest"
+  onUpdate={[Function]}
+  options={
+    Array [
+      "Pikachu",
+      "Charmander",
+    ]
+  }
+/>
 `;

@@ -1,31 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MovieDetails Snapshot 1`] = `
-<div>
-  <button>
-    SEARCH
-  </button>
-  <img
-    alt="poster"
-    src="www.example.com"
-  />
-  <span>
-    Jay and Pikachu Strike Back
-  </span>
-  <span>
-    6.9
-  </span>
-  <span>
-    movieForNerds
-  </span>
-  <span>
-    a long time ago
-  </span>
-  <span>
-    01:31
-  </span>
-  <span>
-    Probably the most popular anime in the world
-  </span>
-</div>
+<MovieDetails
+  classes={
+    Object {
+      "button": "MovieDetails-button-0-1-2",
+      "image": "MovieDetails-image-0-1-3",
+      "movieDetails": "MovieDetails-movieDetails-0-1-1",
+      "overview": "MovieDetails-overview-0-1-10",
+      "releaseDate": "MovieDetails-releaseDate-0-1-8",
+      "runtime": "MovieDetails-runtime-0-1-9",
+      "tagLine": "MovieDetails-tagLine-0-1-7",
+      "title": "MovieDetails-title-0-1-5",
+      "titleAndVote": "MovieDetails-titleAndVote-0-1-4",
+      "voteAverage": "MovieDetails-voteAverage-0-1-6",
+    }
+  }
+  notFound={false}
+  overview="Probably the most popular anime in the world"
+  poster_path="www.example.com"
+  release_date="a long time ago"
+  runtime="01:31"
+  tagline="movieForNerds"
+  title="Jay and Pikachu Strike Back"
+  vote_average="6.9"
+/>
 `;

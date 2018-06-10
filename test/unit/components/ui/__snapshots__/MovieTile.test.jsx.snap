@@ -1,18 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MovieTile Snapshot 1`] = `
-<div>
-  <img
-    alt="movie"
-    data-idx={1}
-    src={null}
-  />
-  <span>
-    Pokemon
-  </span>
-  <span />
-  <span>
-    headbanger movies,impossible brutality
-  </span>
-</div>
+<MovieTile
+  classes={
+    Object {
+      "genre": "MovieTile-genre-0-1-5",
+      "image": "MovieTile-image-0-1-2",
+      "movieTile": "MovieTile-movieTile-0-1-1",
+      "releaseDate": "MovieTile-releaseDate-0-1-3",
+      "releaseDateSpan": "MovieTile-releaseDateSpan-0-1-4",
+      "title": "MovieTile-title-0-1-6",
+    }
+  }
+  genre="Anime"
+  genres={
+    Array [
+      "headbanger movies",
+      "impossible brutality",
+    ]
+  }
+  idx={1}
+  poster_path={null}
+  release_date={null}
+  src="www.example.com"
+  title="Pokemon"
+  year={2001}
+/>
 `;

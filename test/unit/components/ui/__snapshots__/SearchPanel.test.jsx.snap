@@ -1,34 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchPanel Snapshot 1`] = `
-<div
-  className="SearchPanel"
->
-  <span
-    className="Header"
-  >
-    FIND YOUR MOVIE
-  </span>
-  <SearchField
-    handleChange={[Function]}
-    onEnter={[Function]}
-  />
-  <SearchFilter
-    checked=""
-    idPrefix="SearchFilter-"
-    onUpdate={[Function]}
-    options={
-      Array [
-        "TITLE",
-        "GENRE",
-      ]
+<SearchPanel
+  classes={
+    Object {
+      "header": "SearchPanel-header-0-1-2",
+      "searchButton": "SearchPanel-searchButton-0-1-4",
+      "searchButtonContainer": "SearchPanel-searchButtonContainer-0-1-3",
+      "searchPanel": "SearchPanel-searchPanel-0-1-1",
     }
-  />
-  <button
-    className="SearchButton"
-    onClick={[Function]}
-  >
-    SEARCH
-  </button>
-</div>
+  }
+  filter=""
+  handleSearchChange={[Function]}
+  onFilterUpdate={[Function]}
+  sortOption=""
+  startSearch={[Function]}
+  text=""
+/>
 `;
