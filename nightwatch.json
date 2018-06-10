@@ -12,7 +12,7 @@
 
   "test_settings" : {
     "default" : {
-      "launch_url" : "http://localhost:9000",
+      "launch_url" : "http://localhost:3000",
       "selenium_port"  : 9515,
       "selenium_host"  : "localhost",
       "default_path_prefix" : "",
